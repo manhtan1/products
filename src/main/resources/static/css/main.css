@@ -1045,6 +1045,7 @@
     border-radius: 2px;
     transition: transform linear 0.1;
     will-change: transform;
+    width: 100%;
 }
 
 .home-product-item:hover{
@@ -1053,13 +1054,12 @@
 }
 
 .home-product-item__img{
-    padding-top: 100%;
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
-
+    width: 100%;
 }
 
 .home-product-item-desc{
