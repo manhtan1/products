@@ -137,20 +137,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="header__search-select">
-                        <span class="header__search-select-label" for="">Trong shop</span>
-                        <i class="header__search-select-icon fas fa-chevron-down"></i>
-                        <ul class="header__search-options">
-                            <li class="header__search-options-item header__search-options-item-active">
-                                <span>Trong shop</span>
-                                <i class="fas fa-check"></i>
-                            </li>
-                            <li class="header__search-options-item">
-                                <span>Ngoài shop</span>
-                                <i class="fas fa-check"></i>
-                            </li>
-                        </ul>
-                    </div>
+
                     <button class="header__search-btn">
                         <i class="header__search-btn-icon fas fa-search"></i>
                     </button>
@@ -287,32 +274,12 @@
             </div>
         </div>
     </header>
-    <div class="logo__shop">
+    <div class="logo__shop" style="background-color:#efeae2">
         <img src="/img/main.jpg" alt="">
     </div>
     <div class="app__container">
         <div class="grid">
             <div class="grid__row app__content">
-                    <div class="home-filter">
-                        <span class="home-filter__label">Sắp xếp theo</span>
-                        <button class="home-filter__btn btn btn--white">Phổ biến</button>
-                        <button class="home-filter__btn btn btn--primary">Mới nhất</button>
-                        <button class="home-filter__btn btn btn--white ">Bán chạy</button>
-
-                        <div class="select-input">
-                            <span class=" select-input__label">Giá</span>
-                            <i class="select-input__icon fas fa-chevron-down"></i>
-                            <ul class="select-input__list">
-                                <li class="select-input__item">
-                                    <a href="" class="select-input__link">Giá:Thấp đến cao</a>
-                                </li>
-                                <li class="select-input__item">
-                                    <a href="" class="select-input__link">Giá:Cao đến Thấp</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
                     <div class="home-product">
                         <div class="gird-row">
                                 <th:block th:each="sanpham:${sanPhamList}">
