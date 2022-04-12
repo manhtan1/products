@@ -282,32 +282,27 @@
             <div class="descProduct">
                 <h3 class="descname" th:text="${products.TEN_SAN_PHAM}"></h3>
                 <span class="priceProduct" th:text="${products.DON_GIA +' VND'}"></span>
-                <p class="detailProduct">
-                    Hey guys,
-                    here is my take for day 12th of the challenge,
-                    a product page of an e-commerce.
-                    Hope you like it and take a look at the HD for a complete view of the page.
-                    Let me know your thoughts !
-                    Victor
+                <p class="detailProduct" th:text="${products.MO_TA}">
+
                 </p>
                 <div class="rating">
                     <i class="fas fa-star  home-product-item__rating--active"></i>
                     <i class="fas fa-star  home-product-item__rating--active"></i>
                     <i class="fas fa-star  home-product-item__rating--active"></i>
-                    <i class="fas fa-star "></i>
-                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star  home-product-item__rating--active"></i>
+                    <i class="fas fa-star  home-product-item__rating--active"></i>
                 </div>
                 <div class="buy__quantity">
                     <input type="number" id="quantity" placeholder="1" name="quantity" min="1" max="">
-                    <button>ADD TO CART</button>
+                    <button>THÊM VÀO GIỎ HÀNG</button>
                 </div>
                 <div class="share">
                     <p>Share this product</p>
                     <div class="internet">
                         <i class="ti-facebook"></i>
                         <i class="ti-instagram"></i>
-                        <i class="ti-twitter-alt"></i>
-                        <i class="ti-linkedin"></i>
+                        <!--<i class="ti-twitter-alt"></i>
+                        <i class="ti-linkedin"></i>-->
                     </div>
                 </div>
             </div>
@@ -359,10 +354,10 @@
                         <a href="" class="footer-item__link">
                             <i class="footer-item__link-icon fab fa-instagram"></i>instagram</a>
                     </li>
-                    <li class="footer-item">
-                        <a href="" class="footer-item__link">
-                            <i class="footer-item__link-icon fab fa-linkedin-in"></i>LinkedIn</a>
-                    </li>
+                    <!--                    <li class="footer-item">-->
+                    <!--                        <a href="" class="footer-item__link">-->
+                    <!--                            <i class="footer-item__link-icon fab fa-linkedin-in"></i>LinkedIn</a>-->
+                    <!--                    </li>-->
                 </ul>
             </div>
             <div class="gird-column-2-4" style="display: block">
