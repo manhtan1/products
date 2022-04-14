@@ -293,8 +293,8 @@
                     <i class="fas fa-star  home-product-item__rating--active"></i>
                 </div>
                 <div class="buy__quantity">
-                    <input type="number" id="quantity" placeholder="1" name="quantity" min="1" max="">
-                    <button>THÊM VÀO GIỎ HÀNG</button>
+                    <input type="number" id="quantity" th:valua="${products.SL}" placeholder="1" name="quantity" min="1" max="">
+                    <button><a th:href="@{/home/Cart/add/{id}(id=${products.id})}">THÊM VÀO GIỎ HÀNG</a></button>
                 </div>
                 <div class="share">
                     <p>Share this product</p>
@@ -431,6 +431,10 @@
         text-align: center;
         border-radius: 5px;
         border: none;
+    }
+    .buy__quantity button a{
+        text-decoration: none;
+        color: #fff;
     }
     .priceProduct{
         font-size: 20px;

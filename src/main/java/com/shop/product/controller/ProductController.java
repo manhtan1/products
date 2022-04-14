@@ -3,6 +3,7 @@ package com.shop.product.controller;
 import com.shop.product.model.SanPham;
 import com.shop.product.repository.ProductRepository;
 import com.shop.product.repository.SanphamRepository;
+import com.shop.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,12 +16,11 @@ import java.util.List;
 @Controller
 public class ProductController {
     @Autowired
-    ProductRepository productRepository;
+    ProductService productService;
 
         @GetMapping("/home/product/{id}")
         public String getproducts(@PathVariable Long id, Model model) {
-            model.addAttribute("products",productRepository.getSanPhamByid(id).get());
-            model.addAttribute("Sanpham",productRepository.findByid(id));
+            model.addAttribute("products",productService.getSanPhamByid(id).get());
             return "descproduct";
         }
 }

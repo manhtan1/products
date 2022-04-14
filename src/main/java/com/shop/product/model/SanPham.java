@@ -16,7 +16,15 @@ public class SanPham {
     private Date NGAY_NHAP_KHO;
     private Integer SL_ton;
     private String HINHANH;
+    private Integer SL;
 
+    public Integer getSL() {
+        return SL;
+    }
+
+    public void setSL(Integer SL) {
+        this.SL = SL;
+    }
     public Long getId() {
         return id;
     }
