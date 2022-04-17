@@ -4,7 +4,7 @@ import com.shop.product.model.Carts;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-
+@Service
 public interface CartService {
     void addproduct(Carts item);
 

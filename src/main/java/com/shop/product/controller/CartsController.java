@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Collection;
 import java.util.Optional;
@@ -37,6 +38,16 @@ public class CartsController {
             item.setSL(1);
             cartService.addproduct(item);
         }
+        return "redirect:/home/Cart/list";
+    }
+    @GetMapping("/home/Cart/remove/{id}")
+    public String Remove(@PathVariable Long id){
+        cartService.remove(id);
+        return "redirect:/home/Cart/list";
+    }
+    @GetMapping("/home/Cart/update")
+    public String Update(@RequestParam Long id,@RequestParam Integer SL){
+        cartService.update(id, SL);
         return "redirect:/home/Cart/list";
     }
 }

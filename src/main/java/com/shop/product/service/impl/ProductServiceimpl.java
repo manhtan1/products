@@ -11,8 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Component
-@Service
-public class ProductServiceimpl implements ProductService {
+public class ProductServiceimpl implements ProductService{
     @Autowired
     ProductRepository productRepository;
 
@@ -22,7 +21,7 @@ public class ProductServiceimpl implements ProductService {
         return productRepository.findById(id);
     }
     @Override
-    public SanPham findByid(int id){
+    public SanPham findByID(int id){
         return list.get(id);
     }
 }

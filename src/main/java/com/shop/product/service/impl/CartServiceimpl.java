@@ -2,6 +2,7 @@ package com.shop.product.service.impl;
 
 import com.shop.product.model.Carts;
 import com.shop.product.service.CartService;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
 
@@ -9,11 +10,11 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-@Service
-@SessionScope
+//@SessionScope
+@Component
 public class CartServiceimpl implements CartService {
 
-    private Map<Integer,Carts> map = new HashMap<Integer, Carts>();
+    private Map<Long,Carts> map = new HashMap<Long, Carts>();
     @Override
     public void addproduct(Carts item){
         Carts existedItem =map.get(item.getId());
@@ -21,7 +22,7 @@ public class CartServiceimpl implements CartService {
             existedItem.setSL(item.getSL()+existedItem.getSL());
         }
         else{
-            map.put(Math.toIntExact(item.getId()), item);
+            map.put(item.getId(), item);
         }
     }
     @Override
@@ -36,7 +37,7 @@ public class CartServiceimpl implements CartService {
     public void update(Long id, Integer SL){
         Carts item=map.get(id);
         item.setSL(SL);
-        item.setTotal(item.getDON_GIA()* item.getSL());
+//        item.setTotal(item.getDON_GIA()* item.getSL());
         if(item.getSL()<=0){
             map.remove(id);
         }

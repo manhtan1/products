@@ -5,9 +5,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 @Service
-
 public interface ProductService {
     Optional<SanPham> getSanPhamByid(Long id);
 
-    SanPham findByid(int id);
+    SanPham findByID(int id);
 }
