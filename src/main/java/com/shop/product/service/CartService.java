@@ -12,7 +12,7 @@ public interface CartService {
 
     void clear();
 
-    void update(Long id, Integer SL);
+    void updateGioHang(Long id, Long SL);
 
     void remove(Long id);
 }

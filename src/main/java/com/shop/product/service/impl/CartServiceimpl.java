@@ -5,16 +5,18 @@ import com.shop.product.service.CartService;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
+import java.math.BigDecimal;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-//@SessionScope
+@SessionScope
+@Service
 @Component
 public class CartServiceimpl implements CartService {
 
-    private Map<Long,Carts> map = new HashMap<Long, Carts>();
+    Map<Long,Carts> map = new HashMap<Long, Carts>();
     @Override
     public void addproduct(Carts item){
         Carts existedItem =map.get(item.getId());
@@ -34,10 +36,9 @@ public class CartServiceimpl implements CartService {
         map.clear();
     }
     @Override
-    public void update(Long id, Integer SL){
+    public void updateGioHang(Long id,Long SL){
         Carts item=map.get(id);
         item.setSL(SL);
-//        item.setTotal(item.getDON_GIA()* item.getSL());
         if(item.getSL()<=0){
             map.remove(id);
         }

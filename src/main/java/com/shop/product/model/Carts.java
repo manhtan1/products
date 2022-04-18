@@ -1,6 +1,7 @@
 package com.shop.product.model;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -16,7 +17,7 @@ public class Carts {
     private Date NGAY_NHAP_KHO;
     private Integer SL_ton;
     private String HINHANH;
-    private Integer SL;
+    private Long SL;
     private Float Total;
 
     public Long getId() {
@@ -83,11 +84,11 @@ public class Carts {
         this.HINHANH = HINHANH;
     }
 
-    public Integer getSL() {
+    public Long getSL() {
         return SL;
     }
 
-    public void setSL(Integer SL) {
+    public void setSL(Long SL) {
         this.SL = SL;
     }
 
@@ -96,7 +97,7 @@ public class Carts {
     }
 
     public void setTotal(Float total) {
-        Total = total;
+        this.Total = total;
     }
 
 }

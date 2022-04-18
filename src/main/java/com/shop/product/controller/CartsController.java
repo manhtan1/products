@@ -35,7 +35,7 @@ public class CartsController {
         if(sanPham!=null){
             Carts item=new Carts();
             BeanUtils.copyProperties(sanPham,item);
-            item.setSL(1);
+            item.setSL(1L);
             cartService.addproduct(item);
         }
         return "redirect:/home/Cart/list";
@@ -45,9 +45,9 @@ public class CartsController {
         cartService.remove(id);
         return "redirect:/home/Cart/list";
     }
-    @GetMapping("/home/Cart/update")
-    public String Update(@RequestParam Long id,@RequestParam Integer SL){
-        cartService.update(id, SL);
+    @GetMapping("/home/Cart/update/{id}/{SL}")
+    public String updateGioHang(@PathVariable Long id ,@PathVariable Long SL){
+        cartService.updateGioHang(id, SL);
         return "redirect:/home/Cart/list";
     }
 }
