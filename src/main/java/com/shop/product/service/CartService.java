@@ -15,4 +15,8 @@ public interface CartService {
     void updateGioHang(Long id, Long SL);
 
     void remove(Long id);
+
+    double getAmount();
+
+    int getCount();
 }

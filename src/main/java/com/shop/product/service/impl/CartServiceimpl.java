@@ -5,7 +5,6 @@ import com.shop.product.service.CartService;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.context.annotation.SessionScope;
-import java.math.BigDecimal;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -46,6 +45,17 @@ public class CartServiceimpl implements CartService {
     @Override
     public void remove(Long id){
         map.remove(id);
+    }
+    @Override
+    public double getAmount() {
+        return map.values().stream().mapToDouble(item->item.getTotal()).sum();
+    }
+    @Override
+    public int getCount(){
+//        if(map.isEmpty()){
+//            return 0;
+//        }
+        return map.values().size();
     }
 
 }

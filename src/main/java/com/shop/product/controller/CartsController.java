@@ -27,6 +27,8 @@ public class CartsController {
     public String list(Model model){
         Collection<Carts> carts=cartService.getCarts();
         model.addAttribute("carts",carts);
+        model.addAttribute("total",cartService.getAmount());
+        model.addAttribute("SLItem",cartService.getCount());
         return "listCart";
     }
     @GetMapping("/home/Cart/add/{id}")

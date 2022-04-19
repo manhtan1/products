@@ -143,7 +143,7 @@
                     </button>
                 </div>
                 <div class="header__cart">
-                    <div class="header__cart-wrap">
+                    <div class="header__cart-wrap" th:onclick=" |openCart()|">
                         <i class="header__cart-icon fas fa-shopping-cart"></i>
                         <!--                        <span class="header__cart-notice">3</span>-->
                         <!--                         no cart:header__cart-list&#45;&#45;no-cart -->
@@ -306,13 +306,18 @@
                             <td th:text="${item.DON_GIA+' VND'}"></td>
                             <td th:text="${item.total+' VND'}"></td>
                             <td>
-                                <a class="btn" th:onclick="|updateGioHang(${item.id})|">Cập Nhật</a>
-                                <a th:href="@{/home/Cart/remove/{id}(id=${item.id})}">Xóa sản phẩm</a>
+                                <a class="btn cart_hover" th:onclick="|updateGioHang(${item.id})|"><i class="ti-reload"></i></a>
+                                <a class="btn cart_hover" th:href="@{/home/Cart/remove/{id}(id=${item.id})}"><i class="ti-trash"></i></a>
                             </td>
                         </tr>
                     </th:block>
 
                 </table>
+                <div class="sum">
+                    <span class="footer-heading" th:text="${'Tổng số lượng:'+ SLItem}"></span>
+                    <br>
+                    <span class="footer-heading" th:text="${'Tổng tiền:'+total}"></span>
+                </div>
             </div>
         </div>
     </div>
@@ -403,6 +408,10 @@
         $.get("/home/Cart/update/" + id + "/" + soLuong);
         location.reload();
       }
+      function openCart(){
+        $.get("/home/Cart/list");
+        location.reload();
+      }
     </script>
 </body>
 <style>
@@ -433,6 +442,21 @@
     }
     tr td a{
         text-decoration: none;
+    }
+    .cart_hover:hover{
+        color:red;
+    }
+    .cart_hover{
+        font-size: 20px;
+        color: var(--black-color);
+        text-decoration: none;
+    }
+    .sum{
+        float: left;
+        font-weight: bold;
+        color: red;
+        padding: 10px;
+        display: contents;
     }
 </style>
 <script>
