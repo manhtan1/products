@@ -827,6 +827,7 @@
     font-size: 1.3rem;
     color: #757575;
     font-weight: 350;;
+    text-align: left;
 }
 
 .header__cart-item-remove, remove{

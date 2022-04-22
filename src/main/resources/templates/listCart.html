@@ -20,6 +20,9 @@
         <div class="grid">
             <nav class=" header__navbar">
                 <ul class="header__navbar-list">
+                    <li class="header__navbar-item header__navbar-has-qr header__navbar--separate">
+                        <a class="home" th:href="@{/}" href="#">Trang chủ</a>
+                    </li>
                     <li class="header__navbar-item header__navbar-has-qr header__navbar--separate">Tải ứng dụng
                         <div class="header__qrcode">
                             <img src="/img/qr.png" alt="QR-CODE" class="header__qrcode-img">
@@ -93,8 +96,12 @@
                     <li class="header__navbar-item"><a href="" class="header__navbar-link">
                         <i class="header__navbar-icon far fa-question-circle"></i>
                         Trợ giúp</a></li>
-                    <li class="js-sign header__navbar-item header__navbar-item--bold header__navbar--separate">Đăng ký</li>
-                    <li class="js-login header__navbar-item header__navbar-item--bold">Đăng nhập</li>
+                    <li class="js-sign header__navbar-item header__navbar-item--bold header__navbar--separate">
+                        <a class="sign-login" th:href="@{/register}" href="#">Đăng ký</a>
+                    </li>
+                    <li class="js-login header__navbar-item header__navbar-item--bold">
+                        <a class="sign-login" th:href="@{/login}" href="#">Đăng nhập</a>
+                    </li>
                     <!--                        <li class="header__navbar-item header__navbar-item-user">-->
                     <!--                            <img src="https://i.pinimg.com/236x/eb/53/e0/eb53e075730f1e3b3ebc3c05f0426bb8.jpg" alt="" class="header__navbar-item-img">-->
                     <!--                            <span class="header__navbar-item-name">Nguyễn Công Mạnh Tân</span>-->
@@ -147,130 +154,8 @@
                         <i class="header__cart-icon fas fa-shopping-cart"></i>
                         <!--                        <span class="header__cart-notice">3</span>-->
                         <!--                         no cart:header__cart-list&#45;&#45;no-cart -->
-                        <div class="header__cart-list">
-                            <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
-                            <th:block th:each="item, iStat : ${carts}">
-                                <ul class="header__cart-list-item">
-                                    <li class="header__cart-item">
-                                        <img th:src="@{${'/' + item.HINHANH}}" alt="" class="header__cart-item-img">
-                                        <div class="header__cart-item-info">
-                                            <div class="header__cart-item-head">
-                                                <h5 class="header__cart-item-name" th:text="${item.TEN_SAN_PHAM}"></h5>
-                                                <div class="header__cart-wrap-item">
-                                                    <span class="header__cart-item-price" th:text="${item.total+' VND'}"></span>
-                                                    <span class="header__cart-item-multiply">x</span>
-                                                    <span class="header__cart-item-quantity" th:text="${item.SL}"></span>
-                                                </div>
-                                            </div>
-                                            <div class="header__cart-item-body">
-                                                <span class="header__cart-item-desc" th:text="${item.MO_TA}"></span>
-                                                <span class="header__cart-item-remove">
-                                                         <a class="remove" style="text-decoration: none" th:href="@{/home/Cart/remove/{id}(id=${item.id})}">Xóa sản phẩm</a>
-                                                    </span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                            </th:block>
-                            <a th:href="@{/home/Cart/list}" class="header__cart-view btn btn-primary"> Xem tất cả</a>
-                        </div>
-
-
                     </div>
 
-                </div>
-            </div>
-        </div>
-        <!--modal sign -->
-        <div class="modol ">
-            <div class="modol__overlay"></div>
-            <div class="modol__body">
-                <div class="auth-form">
-                    <div class="auth-form__container">
-                        <div class="auth-form__header">
-                            <h3 class="auth-form__heading">Đăng ký</h3>
-                            <span class="auth-form__switch-btn">Đăng nhập</span>
-                        </div>
-                        <div class="auth-form__form">
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Email/ Số điên thoại">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Nhập mật khẩu">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Nhập lại mật khẩu">
-                            </div>
-                        </div>
-                        <div class="auth-form__aside">
-                            <p class="auth-form__policy-text">Bằng việc đăng ký, bạn đã đồng ý với Shopee về
-                                <a href="" class="auth-form__policy-link">Điều khoản dịch vụ</a> &
-                                <a href="" class="auth-form__policy-link">Chính sách bảo mật</a>
-                            </p>
-                        </div>
-                        <div class="auth-form__control">
-                            <button class="btn js-back control-right btn--normal">TRỞ LẠI</button>
-                            <button class="btn btn-primary">ĐĂNG KÝ</button>
-                        </div>
-                    </div>
-                    <div class="auth-form__sicial">
-                        <a href="" class="auth-form__sicial--facebook btn btn--size-s btn-with-icon">
-                            <i class="auth-form__sicial-icon fab fa-facebook-square"></i>
-                            <span class="auth-form__sicial-title">kết nối với facebook</span>
-                        </a>
-                        <a href="" class="auth-form__sicial--google btn btn--size-s btn-with-icon">
-                            <i class="auth-form__sicial-icon fab fa-google"></i>
-                            <span class="auth-form__sicial-title">  kết nối với Google </span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modollogin">
-            <div class="modol__overlay"></div>
-            <div class="modol__body">
-                <!-- Authen form -->
-                <div class="auth-form">
-                    <div class="auth-form__container">
-                        <div class="auth-form__header">
-                            <h3 class="auth-form__heading">Đăng nhập</h3>
-                            <span class="auth-form__switch-btn">Đăng ký</span>
-                        </div>
-                        <div class="auth-form__form">
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Email/ Số điên thoại">
-                            </div>
-                            <div class="auth-form__group">
-                                <input type="text" class="auth-form__input" placeholder="Nhập mật khẩu">
-                            </div>
-                        </div>
-                        <div class="auth-form__aside">
-                            <div class="auth-form__help">
-                                <a href="" class="auth-form__help-link auth-form__help-forgot">Quên mật khẩu</a>
-                                <span class="auth-form__help-separate"></span>
-                                <a href="" class="auth-form__help-link">Cần trợ giúp?</a>
-                            </div>
-                        </div>
-                        <div class="auth-form__control">
-                            <button class="btn js-back control-right btn--normal">TRỞ LẠI</button>
-                            <button class="btn btn-primary">ĐĂNG NHẬP</button>
-                        </div>
-                    </div>
-                    <div class="auth-form__sicial">
-                        <a href="" class="auth-form__sicial--sms btn btn--size-s btn-with-icon">
-                            <i class="auth-form__sicial-icon fas fa-comments"></i>
-                            <span class="auth-form__sicial-title">SMS</span>
-                        </a>
-                        <a href="" class="auth-form__sicial--facebook btn btn--size-s btn-with-icon">
-                            <i class="auth-form__sicial-icon fab fa-facebook-square"></i>
-                            <span class="auth-form__sicial-title">facebook</span>
-                        </a>
-                        <a href="" class="auth-form__sicial--google btn btn--size-s btn-with-icon">
-                            <i class="auth-form__sicial-icon fab fa-google"></i>
-                            <span class="auth-form__sicial-title">Google </span>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -458,34 +343,16 @@
         padding: 10px;
         display: contents;
     }
+     .home,
+     .sign-login{
+         text-decoration: none;
+         color: var(--white-color);
+     }
+    .home:hover,
+    .sign-login:hover{
+        color: rgba(255,255,255,0.7);
+        cursor: pointer;
+    }
 </style>
-<script>
-    const openmodal=document.querySelector('.modol');
-    const openmodallogin=document.querySelector('.modollogin');
-    const openlogin=document.querySelector('.js-login');
-    const clicksign=document.querySelector('.js-sign');
-    const closesigns=document.querySelectorAll('.js-back');
 
-    clicksign.onclick=function(){
-        openmodal.classList.add('open');
-    }
-    openlogin.onclick=function(){
-        openmodallogin.classList.add('open');
-    }
-    function closebtn(){
-        if(openmodal){
-            openmodal.classList.remove('open');
-        }
-        else{
-            openmodallogin.classList.remove('open');
-        }
-    }
-
-    for(const closesign of closesigns){
-        closesign.addEventListener('click',closebtn);
-    }
-
-
-
-</script>
 </html>

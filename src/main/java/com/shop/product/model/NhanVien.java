@@ -14,6 +14,8 @@ public class NhanVien {
     private String EMAIL_NV;
     private String CHUCVU;
 
+
+
     public String getTK() {
         return TK;
     }
