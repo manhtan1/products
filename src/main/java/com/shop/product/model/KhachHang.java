@@ -16,6 +16,7 @@ public class KhachHang {
     private String GIOITINH;
     private String TAIKHOAN;
     private String MAUKHAU;
+    private boolean remember;
 
     public Long getId() {
         return id;
@@ -87,5 +88,13 @@ public class KhachHang {
 
     public void setMAUKHAU(String MAUKHAU) {
         this.MAUKHAU = MAUKHAU;
+    }
+
+    public boolean isRemember(){
+        return remember;
+    }
+
+    public void setRemember(boolean remember){
+        this.remember=remember;
     }
 }
