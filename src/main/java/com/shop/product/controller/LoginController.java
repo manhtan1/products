@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
     @Autowired
     CartService cartService;
-    @GetMapping("/login")
+    @GetMapping("/user/login")
     public String login(){
         cartService.clear();
         return "login";
     }//page login
-    @GetMapping("/register")
+    @GetMapping("/user/register")
     public String register(){
         cartService.clear();
         return "register";

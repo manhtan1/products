@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="Mosaddek">
+  <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+  <link rel="shortcut icon" href="img/homeAdmin.html">
+
+  <title>LOGIN ADMIN</title>
+
+  <!-- Bootstrap core CSS -->
+  <title>Admin Family4</title>
+  <link type="text/css" th:href="@{/admin/css/bootstrap.min.css}" rel="stylesheet">
+  <link type="text/css" th:href="@{/admin/css/bootstrap-reset.css}" rel="stylesheet">
+  <link  rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <!-- Custom styles for this template -->
+  <link type="text/css" th:href="@{/admin/css/style.css}" rel="stylesheet">
+  <link type="text/css" th:href="@{/admin/css/style-responsive.css}" rel="stylesheet" />
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 tooltipss and media queries -->
+  <!--[if lt IE 9]>
+  <script src="js/html5shiv.js"></script>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<style>
+  .imgadmin{
+        background-image: url("/img/main.jpg");
+        height:300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+</style>
+
+<body class="login-body">
+
+<div class="container">
+  <div class="imgadmin"></div>
+  <form class="form-signin" action="/login" method="post" style="margin: 0 auto;">
+
+    <th:block th:if="${ErrorMessage}">
+      <h5 class="text-danger" style="text-align: center"  th:text="${ErrorMessage}" ></h5>
+    </th:block>
+    <h2 class="form-signin-heading">sign in now</h2>
+    <div class="login-wrap">
+      <input type="email" name="email" class="form-control" placeholder="User ID" autofocus>
+      <input type="password" name="password" class="form-control" placeholder="Password">
+
+      <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>
+    </div>
+  </form>
+
+</div>
+<!-- js placed at the end of the document so the pages load faster -->
+<script src="/admin/js/jquery.js"></script>
+<script src="/admin/js/bootstrap.min.js"></script>
+
+
+</body>
+
+<!-- Mirrored from thevectorlab.net/flatlab/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:43:57 GMT -->
+</html>
