@@ -1,6 +1,6 @@
 .header{
-    background-image: linear-gradient(0,#fe6332,#f53f2d);
-    height: 120px;
+    background-image: linear-gradient(0,#e5c3b8,#e37c72);
+    height: 160px;
 }
 .header__navbar{ 
     display:flex;
@@ -665,7 +665,7 @@
 }
 
 .header__search-btn{
-    background-color:var(--primary-color);
+    background-color:#ab341c;
     border:none;
     width: 60px;
     height:36px;

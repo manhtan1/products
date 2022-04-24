@@ -1,0 +1,292 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/base.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/fonts/themify-icons/themify-icons.css}">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>TRỢ GIÚP</title>
+</head>
+<style>
+    .imgadmin{
+        background-image: url("https://i.pinimg.com/564x/f3/3f/7d/f33f7ded5fe82a60787a9d6a745a8804.jpg");
+        background-color: #cccccc;
+        height:300px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
+    .home,
+    .sign-login{
+        text-decoration: none;
+        color: var(--white-color);
+    }
+    .home:hover,
+    .sign-login:hover{
+        color: rgba(255,255,255,0.7);
+        cursor: pointer;
+    }
+    .form-group label{
+        font-size: 20px;
+        font-weight: 500;
+    }
+</style>
+<body>
+<header class="header">
+    <div class="grid">
+        <nav class=" header__navbar">
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item header__navbar-has-qr header__navbar--separate">
+                    <a class="home" th:href="@{/}" href="#">Trang chủ</a>
+                </li>
+                <li class="header__navbar-item header__navbar-has-qr header__navbar--separate">Tải ứng dụng
+                    <div class="header__qrcode">
+                        <img src="/img/qr.png" alt="QR-CODE" class="header__qrcode-img">
+                        <div class="header__qrcode-link">
+                            <a href="" class="header__qrcode-apps">
+                                <img src="/img/google.png" alt="QR-google" class="header__download">
+                            </a>
+                            <a href="" class="header__qrcode-apps">
+                                <img src="/img/store.png" alt="QR-app-store" class="header__download">
+                            </a>
+                        </div>
+                    </div>
+                </li>
+                <li class="header__navbar-item">
+                    <span class="header__navbar-title--no-pointer" >Kết nối</span>
+                    <a href="https://www.facebook.com/tan.muas27/" class="header__navbar-icon-link">
+                        <i class="header__navbar-icon fab fa-facebook"></i>
+                    </a>
+                    <a href="https://www.instagram.com/" class="header__navbar-icon-link">
+                        <i class="header__navbar-icon fab fa-instagram"></i>
+                    </a>
+                </li>
+            </ul>
+
+            <ul class="header__navbar-list">
+                <li class="header__navbar-item header__navbar-item-has-notify"><a href="" class="header__navbar-link">
+                    <i class="header__navbar-icon fal fa-bell"></i>
+                    Thông báo</a>
+                    <div class="header__notify">
+                        <header class="header__notify-header">
+                            <h3>Đăng nhập để xem thông báo</h3>
+                        </header>
+                        <ul class="header__notify-list">
+                            <li class="header__notify-item header__notify-item--viewed">
+                                <a href="" class="header__notify-link">
+                                    <img class="header__notify-img" src="/img/thongbao.png" alt="">
+                                    <div class="header__notify-info">
+                                        <span class="header__notify-name">Yourname</span>
+                                        <span class="header__notify-desc">120.000VND</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="header__notify-list">
+                            <li class="header__notify-item">
+                                <a href="" class="header__notify-link">
+                                    <img class="header__notify-img" src="/img/thongbao.png" alt="">
+                                    <div class="header__notify-info">
+                                        <span class="header__notify-name">Miễn phí giao hàng 0Đ</span>
+                                        <span class="header__notify-desc">✨Hàng Loạt Voucher Hot Tặng Bạn, Tha Hồ Mua Sắm. </span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="header__notify-list">
+                            <li class="header__notify-item header__notify-item--viewed">
+                                <a href="" class="header__notify-link">
+                                    <img class="header__notify-img" src="/img/thongbao.png" alt="">
+                                    <div class="header__notify-info">
+                                        <span class="header__notify-name">8.8 siêu sale Freeship</span>
+                                        <span class="header__notify-desc"> 🔥Lên Shopee Săn Ngay Hàng Giá Sốc</span>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="header__notify-footer">
+                            <a href="" class="header__notify-footer-btn">Xem tất cả</a>
+                        </div>
+                    </div>
+                </li>
+                <li class="header__navbar-item"><a href="" class="header__navbar-link">
+                    <i class="header__navbar-icon far fa-question-circle"th:href="@{/user/help}"></i>Trợ giúp</a></li>
+                <li class="js-sign header__navbar-item header__navbar-item--bold header__navbar--separate">
+                    <a class="sign-login" th:href="@{/user/register}" href="#">Đăng ký</a>
+                </li>
+                <li class="js-login header__navbar-item header__navbar-item--bold">
+                    <a class="sign-login" th:href="@{/user/login}" href="#">Đăng nhập</a>
+                </li>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </nav>
+        <div class="header-with-search">
+            <div class="header__logo">
+                <a href="/" class="header__logo-link">
+                </a>
+            </div>
+            <div class="header__search">
+                <div class="header__search-input-wrap">
+                    <input type="text" class="header__search-input" placeholder="nhập để tìm kiếm sản phẩm">
+                    <div class="header__search-history">
+                        <h3 class="header__search-history-heading">
+                            Lịch sử tìm kiếm
+                        </h3>
+                        <ul class="header__search-history-list">
+                            <li class="header__search-history-item">
+                                <a href="">trong nước</a>
+                            </li>
+                            <li class="header__search-history-item">
+                                <a href="">ngoài nước</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <button class="header__search-btn">
+                    <i class="header__search-btn-icon fas fa-search"></i>
+                </button>
+            </div>
+            <div class="header__cart">
+                <div class="header__cart-wrap" th:onclick=" |openCart()|">
+                    <i class="header__cart-icon fas fa-shopping-cart"></i>
+                    <!--                        <span class="header__cart-notice">3</span>-->
+                    <!--                         no cart:header__cart-list&#45;&#45;no-cart -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+<div class="logo__shop" style="background-color:#efeae2">
+    <img src="/img/main.jpg" alt="">
+</div>
+<div class="container text-center">
+    <header class="row">
+        <div class="row">
+            <div class="alert-success">
+                    <h2>Trợ giúp</h2>
+            </div>
+        </div>
+    </header>
+    <div class="accordion" id="accordionPanelsStayOpenExample">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne"><span style="font-size: 15pt">
+                    Tôi có thể huỷ đơn hàng không?</span>
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                <div class="accordion-body">
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;font-variant: normal;white-space: pre-wrap;"><span style="color: #000000;"><span style="font-weight: 400;"><span style="font-style: normal;"><span style="text-decoration: none;">Khi đơn hàng ở trạng thái <b>Chờ lấy hàng</b> (Người bán đang đóng gói và chuẩn bị giao cho tài xế), yêu cầu sẽ cần được Người bán phản hồi. <b>Người bán chấp nhận yêu cầu hủy đơn:</b> Đơn hàng sẽ được hủy ngay lập tức. <b>Người bán từ chối yêu cầu hủy đơn:</b> Đơn hàng sẽ tiếp tục được xử lý. Người mua không thể hủy trong trường hợp này dù có liên hệ bộ phận CSKH .</span></span></span></span></span></span></span>
+                    </li>
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt"><span style="font-style: normal;"><span style="text-decoration: none;">Người mua <b>không</b> thể hủy đơn nếu: Đơn hàng đang trong trạng thái<b>đang giao</b>. Hệ thống không còn hiển thị nút <b>Hủy đơn hàng&nbsp;</b>. Người bán không đồng ý yêu cầu hủy khi đơn hàng ở trạng thái <b>Chờ lấy hàng.</b></span></span></span></span></span></span></p>
+                        <div style="list-style-type: disc;">&nbsp;</div></li>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo"><span style="font-size: 15pt">
+                    Đơn hàng đã giao thành công nhưng tôi chưa nhân được bánh?
+                </span>
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+                <div class="accordion-body">
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;font-variant: normal;white-space: pre-wrap;"><span style="color: #000000;"><span style="font-weight: 400;"><span style="font-style: normal;"><span style="text-decoration: none;">Nếu vẫn còn trong khoảng thời gian 1 giờ tính từ lúc trạng thái đơn hàng đã giao thành công, mong bạn vui lòng chờ trong khoảng 15p-30p để tài xế giao đến bạn</span></span></span></span></span></span></span></li>
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt"><span style="font-style: normal;"><span style="text-decoration: none;">Nếu đã quá thời gian được nếu trên mà bạn vẫn chưa nhận được bánh, hãy <b>gọi đến bộ phận CSKH</b> để nhân viên xử lý và giao bánh nhanh nhất đến cho bạn</span></span></span></span></li>
+                    <div style="list-style-type: disc;">&nbsp;</div></li>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree"><span style="font-size: 15pt">
+                    Quy trình trả bánh của Shop?
+                </span>
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingThree">
+                <div class="accordion-body">
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;font-variant: normal;white-space: pre-wrap;"><span style="color: #000000;"><span style="font-weight: 400;"><span style="font-style: normal;"><span style="text-decoration: none;">Shop khuyến khích Người mua nên gọi bên bộ phận CSKH liên hệ trao đổi với nhau nhanh nhất để nhận được <b>giải quyết và lý do tại sao trả bánh.</b></span></span></span></span></span></span></li>
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;"><span style="font-style: normal;"><span style="text-decoration: none;">Người mua có thể trả bánh trong 24 giờ được tính từ lúc giao hàng thành công. Trước khi trả bánh, người mua cần <b>giữ lại hoá đơn</b> và <b>để lại bánh trong hộp.</b></span></span></span></span></li>
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;"><span style="font-style: normal;"><span style="text-decoration: none;">Trong quá trình gọi để giải quyết vấn đề, Người mua cần phải nói <b>lý do trả bánh.</b> Bên Shop chỉ <b>nhận lại bánh khi:</b> Bánh <b>không đúng yêu cầu Người mua đặt</b>, Bánh có <b>mùi thiu-thối-hư</b>, Bánh đã bị <b>biến dạng trong quá trình giao.</b></span></span></span></span></li>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour"><span style="font-size: 15pt">
+                    Tôi không thể đăng ký hoặc đăng nhập vào Shop được?
+                </span>
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
+                <div class="accordion-body">
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;font-variant: normal;white-space: pre-wrap;"><span style="color: #000000;"><span style="font-weight: 400;"><span style="font-style: normal;"><span style="text-decoration: none;"> Hiện tại bên Shop chỉ quy định <b>một số điện thoại, một gmail chỉ có thể liên kết hoặc tạo duy nhất</b> bên Shop.</span></span></span></span></span></span></li>
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;"><span style="font-style: normal;"><span style="text-decoration: none;"> Trường hợp 1: Bạn đăng nhập không được, có thể là tài khoản nãy <b>đã được đăng ký trước đó</b> và bạn nhập sai mật khẩu.</span></span></span></span></li>
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;"><span style="font-style: normal;"><span style="text-decoration: none;"> Trường hợp 2:Có thể là tài khoản của bạn <b>đã bị khoá</b> do một vài quy định bên Shop.</span></span></span></span></li>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingFive">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive"><span style="font-size: 15pt">
+                    Tại sao tài khoản của tôi bị khoá?
+                </span>
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFive">
+                <div class="accordion-body">
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;font-variant: normal;white-space: pre-wrap;"><span style="color: #000000;"><span style="font-weight: 400;"><span style="font-style: normal;"><span style="text-decoration: none;">Thứ nhất: Do Người mua đã <b>đăng nhập vào nhiều tài khoản bằng cùng một thiết bị</b>. Người mua chờ 7 ngày sau đăng nhập lại giúp Shop nhá!</span></span></span></span></span></span></li>
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;"><span style="font-style: normal;"><span style="text-decoration: none;"> Thứ hai: Có các <b>hành vi như: đánh giá ảo, không nhận hàng, lừa đảo</b> gây ảnh hưởng đến những Người mua khác và Shop.</span></span></span></span></li>
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;"><span style="font-style: normal;"><span style="text-decoration: none;"> Thứ ba: <b>Sử dụng ngôn từ, hình ảnh thô tục</b> trong quá trình nhận hàng và đánh giá trên Shop.</span></span></span></span></li>
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;"><span style="font-style: normal;"><span style="text-decoration: none;"> Thứ tư: <b>Tên</b> Người mua <b>giống các trang web thương mại, giống tên của Shop, có đường dẫn đến trang web khác.</b> </span></span></span></span></li>
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingSix">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseSix" aria-expanded="false" aria-controls="panelsStayOpen-collapseSix"><span style="font-size: 15pt">
+                    Shop có mã giảm giá không?
+                </span>
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseSix" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingSix">
+                <div class="accordion-body">
+                    <li style="list-style-type: circle"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;font-variant: normal;white-space: pre-wrap;"><span style="color: #000000;"><span style="font-weight: 400;"><span style="font-style: normal;"><span style="text-decoration: none;">Tất nhiên là có chứ. Shop thường có các mã giảm giá khác nhau:</span></span></span></span></span></span></li>
+                    <li style="list-style-type: square;"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;"><span style="font-style: normal;"><span style="text-decoration: none;"> Đầu tiên là mã giảm giá cho người mới lần đầu đặt hàng tại Shop.</span></span></span></span></li>
+                    <li style="list-style-type: square;"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;"><span style="font-style: normal;"><span style="text-decoration: none;"> Những mã giảm giá cho các ngày lễ đặc biệt.</span></span></span></span></li>
+                    <li style="list-style-type: square;"><span style="font-family: Arial,Helvetica,sans-serif;"><span style="font-size: 15pt;"><span style="font-style: normal;"><span style="text-decoration: none;"> Nhân dịp sinh nhật Người mua, Shop cũng có mã giá dành cho bạn đấy!</span></span></span></span></li>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+-->
+</body>
+</html>

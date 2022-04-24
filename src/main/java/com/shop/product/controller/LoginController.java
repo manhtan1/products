@@ -18,5 +18,5 @@ public class LoginController {
     public String register(){
         cartService.clear();
         return "register";
-    }//page login
+    }//page register
 }
