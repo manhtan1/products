@@ -5,7 +5,6 @@ import com.shop.product.repository.ProductRepository;
 import com.shop.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +13,11 @@ import java.util.Optional;
 public class ProductServiceimpl implements ProductService{
     @Autowired
     ProductRepository productRepository;
+    @Override
+    public List<SanPham> getAllProduct() {
+        return productRepository.findAll();
+    }//findAll
+
 
     private static List<SanPham> list=new ArrayList<>();
     @Override
@@ -24,4 +28,13 @@ public class ProductServiceimpl implements ProductService{
     public SanPham findByID(int id){
         return list.get(id);
     }
+    @Override
+    public void updateProduct(SanPham product) {
+        productRepository.save(product);
+    }//add or update (tuy vao pri-key)
+
+    @Override
+    public void removeProductById(long id) {
+        productRepository.deleteById(id);
+    }//delete dua vao pri-key
 }

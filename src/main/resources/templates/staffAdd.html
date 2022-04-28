@@ -3,8 +3,6 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Family4</title>
     <link type="text/css" th:href="@{/admin/css/bootstrap.min.css}" rel="stylesheet">
     <link type="text/css" th:href="@{/admin/css/bootstrap-reset.css}" rel="stylesheet">
@@ -63,14 +61,14 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a  href="index.html">
+                    <a class="active" href="index.html">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 <li>
-                    <a class="active" th:href="@{/admin/users}" href="#">
+                    <a th:href="@{/admin/users}" href="#">
                         <i class="fa fa-user"></i>
-                        <span>Quản lý khách hàng</span>
+                        <span>Quản lý Khách hàng</span>
                     </a>
                 </li>
                 <li>
@@ -86,7 +84,7 @@
                     </a>
                 </li>
                 <li>
-                    <a  href="login.html">
+                    <a  th:href="@{/admin/products}" href="#">
                         <i class="fa fa-user"></i>
                         <span>Quản lý sản phẩm</span>
                     </a>
@@ -98,6 +96,7 @@
                     </a>
                 </li>
             </ul>
+            <!-- sidebar menu end-->
         </div>
     </aside>
     <!--sidebar end-->
@@ -135,40 +134,46 @@
                 </div>
 
             </div>
+            <!--state overview end-->
             <div class="container">
-                <a th:href="@{/admin/users/add}" style="margin: 20px 0" class="btn btn-primary">Add Account</a>
-                <table class="table">
-                    <thead class="thead-light text-center">
-                    <tr>
-                        <th class="text-center" scope="col">STT</th>
-                        <th class="text-center" scope="col">Tài khoản</th>
-                        <th class="text-center" scope="col">Họ và tên</th>
-                        <th class="text-center" scope="col">Email</th>
-                        <th class="text-center" scope="col">Delete</th>
-                        <th class="text-center" scope="col">Update</th>
-                    </tr>
-                    </thead>
-                    <tbody>
+                <h3>Thêm Account</h3>
+                <form action="#" th:action="@{/admin/staffs/add}" method="post" th:object="${staffDTO}"  enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-sm-10">
 
-                    <tr th:each="user, iStat : ${users}">
-                        <th class="text-center" scope="row" th:text="${iStat.index + 1}">1</th>
-                        <td class="text-center" th:text="${user.TAIKHOAN}"></td>
-                        <td class="text-center" th:text="${user.TEN_KH}"></td>
-                        <td class="text-center" th:text="${user.EMAIL}"></td>
-                        <td class="text-center"><a href="" th:href="@{/admin/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
-                        <td class="text-center"><a href="" th:href="@{/admin/users/update/{id}(id=${user.id})}" class="btn btn-warning">Update</a></td>
+                            <input type="hidden" name="id" th:field="*{id}">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" required th:field="*{EMAIL_NV}" name="email" id="email"
+                                       placeholder="Enter Email">
+                            </div>
+                            <div class="form-group">
+                                <label for="taikhoan">Tên nhân viên</label>
+                                <input type="text" class="form-control" required th:field="*{TEN_NV}" name="taikhoan" id="taikhoan"
+                                       placeholder="Nhập Tên nhân viên">
+                            </div>
+                            <div class="form-group">
+                                <label for="chucvu">Chức vụ</label>
+                                <input type="text" class="form-control" required th:field="*{CHUCVU}" name="chucvu" id="chucvu"
+                                       placeholder="Nhập Chức vụ">
+                            </div>
 
-                    </tr>
-                    </tbody>
-                </table>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" class="btn btn-danger" th:onclick="window.location.href='/admin/users'" href="#">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+
             </div>
         </section>
     </section>
     <!--footer start-->
     <footer class="site-footer">
-        <div class="text-center">
-            Family4-Quán bánh ngọt
-        </div>
+        <footer class="site-footer">
+            <div class="text-center">
+                Family4-Quán bánh ngọt
+            </div>
+        </footer>
     </footer>
     <!--footer end-->
 </section>
@@ -223,5 +228,10 @@
     background: #efeae2;
   }
 </style>
+
+<!-- Mirrored from thevectorlab.net/flatlab/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:43:32 GMT -->
+</html>
+</title>
+</head>
 
 </html>

@@ -1,12 +1,6 @@
-package com.shop.product.model;
+package com.shop.product.dto;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "nhan_vien")
-public class NhanVien {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class Staffdto {
     private Long id;
     private String TEN_NV;
     private String GT;
@@ -15,28 +9,6 @@ public class NhanVien {
     private String CHUCVU;
     private String TK;
     private String MK;
-
-
-
-    public String getTK() {
-        return TK;
-    }
-
-    public void setTK(String TK) {
-        this.TK = TK;
-    }
-
-    public String getMK() {
-        return MK;
-    }
-
-    public void setMK(String MK) {
-        this.MK = MK;
-    }
-
-
-
-
 
     public Long getId() {
         return id;
@@ -85,4 +57,35 @@ public class NhanVien {
     public void setCHUCVU(String CHUCVU) {
         this.CHUCVU = CHUCVU;
     }
+
+    public String getTK() {
+        return TK;
+    }
+
+    public void setTK(String TK) {
+        this.TK = TK;
+    }
+
+    public String getMK() {
+        return MK;
+    }
+
+    public void setMK(String MK) {
+        this.MK = MK;
+    }
+
+    public Staffdto(Long id, String TEN_NV, String GT, String DIACHI, String EMAIL_NV, String CHUCVU, String TK, String MK) {
+        this.id = id;
+        this.TEN_NV = TEN_NV;
+        this.GT = GT;
+        this.DIACHI = DIACHI;
+        this.EMAIL_NV = EMAIL_NV;
+        this.CHUCVU = CHUCVU;
+        this.TK = TK;
+        this.MK = MK;
+    }
+    public Staffdto(){
+        super();
+    }
+
 }

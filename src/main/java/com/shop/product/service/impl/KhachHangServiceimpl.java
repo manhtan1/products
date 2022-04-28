@@ -6,6 +6,7 @@ import com.shop.product.service.KhachHangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+
 import java.util.List;
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 public class KhachHangServiceimpl implements KhachHangService {
     @Autowired
     KhachhangRespository khachhangRespository;
+
     @Override
     public List<KhachHang> getAllUser() {
         return khachhangRespository.findAll();
@@ -29,9 +31,6 @@ public class KhachHangServiceimpl implements KhachHangService {
     public Optional<KhachHang> getUserById(Long id) {
         return khachhangRespository.findById(id);
     }
-    @Override
-    public Optional<KhachHang> getUserByEmail(String email) {
-        return khachhangRespository.findKhachHangByEMAIL(email);
-    }
+
 
 }

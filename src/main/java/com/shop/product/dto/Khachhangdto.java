@@ -1,40 +1,35 @@
-package com.shop.product.model;
+package com.shop.product.dto;
+
 import lombok.Data;
 
-import javax.persistence.*;
 import java.util.Date;
-
-@Entity
 @Data
-@Table(name = "khach_hang")
-public class KhachHang {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class Khachhangdto {
     private Long id;
     private String TEN_KH;
     private String DIA_CHI;
     private Date NGAY_SINH;
     private Integer SDT;
     private String EMAIL;
+
     private String GIOITINH;
     private String TAIKHOAN;
     private String MAUKHAU;
 
-    public KhachHang(KhachHang user) {
-        this.id = user.getId();
-        this.TEN_KH = user.getTEN_KH();
-        this.DIA_CHI = user.getDIA_CHI();
-        this.NGAY_SINH = user.getNGAY_SINH();
-        this.SDT = user.getSDT();
-        this.EMAIL = user.EMAIL;
-        this.GIOITINH = user.getGIOITINH();
-        this.TAIKHOAN = user.getTAIKHOAN();
-        this.MAUKHAU = user.getMAUKHAU();
+    public Khachhangdto(Long id, String TEN_KH, String DIA_CHI, Date NGAY_SINH, Integer SDT, String EMAIL, String GIOITINH, String TAIKHOAN, String MAUKHAU) {
+        this.id = id;
+        this.TEN_KH = TEN_KH;
+        this.DIA_CHI = DIA_CHI;
+        this.NGAY_SINH = NGAY_SINH;
+        this.SDT = SDT;
+        this.EMAIL = EMAIL;
+        this.GIOITINH = GIOITINH;
+        this.TAIKHOAN = TAIKHOAN;
+        this.MAUKHAU = MAUKHAU;
     }
-    public KhachHang(){
+    public Khachhangdto(){
+        super();
     }
-
-
 
     public Long getId() {
         return id;
@@ -107,6 +102,4 @@ public class KhachHang {
     public void setMAUKHAU(String MAUKHAU) {
         this.MAUKHAU = MAUKHAU;
     }
-
-
 }

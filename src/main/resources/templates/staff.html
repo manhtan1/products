@@ -3,8 +3,6 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Family4</title>
     <link type="text/css" th:href="@{/admin/css/bootstrap.min.css}" rel="stylesheet">
     <link type="text/css" th:href="@{/admin/css/bootstrap-reset.css}" rel="stylesheet">
@@ -63,14 +61,14 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a  href="index.html">
+                    <a class="active" href="index.html">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 <li>
-                    <a class="active" th:href="@{/admin/users}" href="#">
+                    <a th:href="@{/admin/users}" href="#">
                         <i class="fa fa-user"></i>
-                        <span>Quản lý khách hàng</span>
+                        <span>Quản lý Khách hàng</span>
                     </a>
                 </li>
                 <li>
@@ -86,7 +84,7 @@
                     </a>
                 </li>
                 <li>
-                    <a  href="login.html">
+                    <a  th:href="@{/admin/products}" href="#">
                         <i class="fa fa-user"></i>
                         <span>Quản lý sản phẩm</span>
                     </a>
@@ -98,6 +96,7 @@
                     </a>
                 </li>
             </ul>
+            <!-- sidebar menu end-->
         </div>
     </aside>
     <!--sidebar end-->
@@ -135,30 +134,32 @@
                 </div>
 
             </div>
+            <!--state overview end-->
             <div class="container">
-                <a th:href="@{/admin/users/add}" style="margin: 20px 0" class="btn btn-primary">Add Account</a>
+                <a th:href="@{/admin/staffs/add}" style="margin: 20px 0" class="btn btn-primary">Add Account</a>
                 <table class="table">
                     <thead class="thead-light text-center">
                     <tr>
                         <th class="text-center" scope="col">STT</th>
-                        <th class="text-center" scope="col">Tài khoản</th>
                         <th class="text-center" scope="col">Họ và tên</th>
                         <th class="text-center" scope="col">Email</th>
+                        <th class="text-center" scope="col">Chức vụ</th>
                         <th class="text-center" scope="col">Delete</th>
                         <th class="text-center" scope="col">Update</th>
                     </tr>
                     </thead>
                     <tbody>
-
-                    <tr th:each="user, iStat : ${users}">
+                    <tr th:each="user, iStat : ${staffs}">
                         <th class="text-center" scope="row" th:text="${iStat.index + 1}">1</th>
-                        <td class="text-center" th:text="${user.TAIKHOAN}"></td>
-                        <td class="text-center" th:text="${user.TEN_KH}"></td>
-                        <td class="text-center" th:text="${user.EMAIL}"></td>
-                        <td class="text-center"><a href="" th:href="@{/admin/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
-                        <td class="text-center"><a href="" th:href="@{/admin/users/update/{id}(id=${user.id})}" class="btn btn-warning">Update</a></td>
+                        <td class="text-center" th:text="${user.TEN_NV}"></td>
+                        <td class="text-center" th:text="${user.EMAIL_NV}"></td>
+                        <td class="text-center" th:text="${user.CHUCVU}"></td>
+                        <td class="text-center"><a href="" th:href="@{/admin/staffs/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
+                        <td class="text-center"><a href="" th:href="@{/admin/staffs/update/{id}(id=${user.id})}" class="btn btn-warning">Update</a></td>
 
                     </tr>
+
+
                     </tbody>
                 </table>
             </div>
@@ -166,9 +167,11 @@
     </section>
     <!--footer start-->
     <footer class="site-footer">
-        <div class="text-center">
-            Family4-Quán bánh ngọt
-        </div>
+        <footer class="site-footer">
+            <div class="text-center">
+                Family4-Quán bánh ngọt
+            </div>
+        </footer>
     </footer>
     <!--footer end-->
 </section>
@@ -223,5 +226,10 @@
     background: #efeae2;
   }
 </style>
+
+<!-- Mirrored from thevectorlab.net/flatlab/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:43:32 GMT -->
+</html>
+</title>
+</head>
 
 </html>

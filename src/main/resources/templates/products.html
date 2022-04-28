@@ -63,14 +63,14 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a  href="index.html">
+                    <a class="active" href="index.html">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
                 <li>
-                    <a class="active" th:href="@{/admin/users}" href="#">
+                    <a th:href="@{/admin/users}" href="#">
                         <i class="fa fa-user"></i>
-                        <span>Quản lý khách hàng</span>
+                        <span>Quản lý Khách hàng</span>
                     </a>
                 </li>
                 <li>
@@ -98,6 +98,7 @@
                     </a>
                 </li>
             </ul>
+            <!-- sidebar menu end-->
         </div>
     </aside>
     <!--sidebar end-->
@@ -135,28 +136,36 @@
                 </div>
 
             </div>
-            <div class="container">
-                <a th:href="@{/admin/users/add}" style="margin: 20px 0" class="btn btn-primary">Add Account</a>
+            <!--state overview end-->
+            <div class="container-fluid">
+
+                <a th:href="@{/admin/products/add}" style="margin: 20px 0" class="btn btn-primary">Add Product</a>
                 <table class="table">
-                    <thead class="thead-light text-center">
+                    <thead class="thead-light">
                     <tr>
-                        <th class="text-center" scope="col">STT</th>
-                        <th class="text-center" scope="col">Tài khoản</th>
-                        <th class="text-center" scope="col">Họ và tên</th>
-                        <th class="text-center" scope="col">Email</th>
-                        <th class="text-center" scope="col">Delete</th>
-                        <th class="text-center" scope="col">Update</th>
+                        <th scope="col">SN</th>
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Số lượng tồn</th>
+                        <th scope="col">Mô tả</th>
+                        <th scope="col">Preview</th>
+                        <th scope="col">Delete</th>
+                        <th scope="col">Update</th>
                     </tr>
                     </thead>
                     <tbody>
 
-                    <tr th:each="user, iStat : ${users}">
-                        <th class="text-center" scope="row" th:text="${iStat.index + 1}">1</th>
-                        <td class="text-center" th:text="${user.TAIKHOAN}"></td>
-                        <td class="text-center" th:text="${user.TEN_KH}"></td>
-                        <td class="text-center" th:text="${user.EMAIL}"></td>
-                        <td class="text-center"><a href="" th:href="@{/admin/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
-                        <td class="text-center"><a href="" th:href="@{/admin/users/update/{id}(id=${user.id})}" class="btn btn-warning">Update</a></td>
+                    <tr th:each="product, iStat : ${products}">
+                        <th scope="row" th:text="${iStat.index + 1}">1</th>
+                        <td th:text="${product.TEN_SAN_PHAM}">Larry</td>
+                        <td th:text="${product.DON_GIA + 'VND'}">Larry</td>
+                        <td th:text="${product.SL_ton }">Larry</td>
+                        <td th:text="${product.MO_TA }">Larry</td>
+
+                        <td><img src="" height="100px" width="100px"  th:src="@{${'/'+product.HINHANH}}"></td>
+
+                        <td><a href="" th:href="@{/admin/products/delete/{id}(id=${product.id})}" class="btn btn-danger">Delete</a></td>
+                        <td><a href="" th:href="@{/admin/products/update/{id}(id=${product.id})}" class="btn btn-warning">Update</a></td>
 
                     </tr>
                     </tbody>
@@ -166,9 +175,11 @@
     </section>
     <!--footer start-->
     <footer class="site-footer">
-        <div class="text-center">
-            Family4-Quán bánh ngọt
-        </div>
+        <footer class="site-footer">
+            <div class="text-center">
+                Family4-Quán bánh ngọt
+            </div>
+        </footer>
     </footer>
     <!--footer end-->
 </section>
@@ -224,4 +235,5 @@
   }
 </style>
 
+<!-- Mirrored from thevectorlab.net/flatlab/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:43:32 GMT -->
 </html>
