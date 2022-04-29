@@ -24,68 +24,52 @@
       <div class="col-7">
         <div class="row">
           <div class="col">
-            <form action="KhachHang"method="post">
+            <form action="#" th:action="@{/user/register}" th:object="${users}" method="post">
+              <input type="hidden" name="id" th:field="*{id}">
               <div class="form-group">
-                <label for="TAIKHOAN">Tên đăng nhập:</label>
-                <input type="text"id="TAIKHOAN"name="TAIKHOAN" class="form-control" required/>
+                <label for="email">Email</label>
+                <input type="text" class="form-control" required th:field="*{EMAIL}" name="email" id="email"
+                       placeholder="Enter Email">
+              </div>
+              <div class="form-group">
+                <label for="taikhoan">Tài khoản</label>
+                <input type="text" class="form-control" required th:field="*{TAIKHOAN}" name="taikhoan" id="taikhoan"
+                       placeholder="Nhập Tài khoản">
+              </div>
+              <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" class="form-control" required th:field="*{MAUKHAU}" name="password" id="password"
+                       placeholder="Nhập mật khẩu">
+              </div>
+              <div class="form-group">
+                <label for="Name">Tên Khánh Hàng</label>
+                <input type="text" class="form-control" required th:field="*{TEN_KH}" name="Name" id="Name"
+                       placeholder="Nhập tên khách hàng">
+              </div>
+              <div class="form-group">
+                <label for="sdt">Số điện thoại</label>
+                <input type="number" class="form-control" required th:field="*{SDT}" name="sdt" id="sdt"
+                       placeholder="Nhập Số điện thoại">
+              </div>
+              <div class="form-group">
+                <label for="diachi">Địa chỉ nhận hàng</label>
+                <input type="text" class="form-control" required th:field="*{DIA_CHI}" name="diachi" id="diachi"
+                       placeholder="Nhập địa chỉ">
+              </div>
+<!--              <div class="form-group">-->
+<!--                <label for="birthday">Ngày sinh</label>-->
+<!--                <input type="date" class="form-control" required th:field="*{NGAY_SINH}" name="birthday" id="birthday"-->
+<!--                       placeholder="Nhập địa chỉ">-->
+<!--              </div>-->
+              <br/>
+              <div align="center">
+                <button type="submit" class="form-signin">Đăng Ký</button>
               </div>
             </form>
-            <div class="form-group">
-              <label for="MATKHAU">Mật khẩu:</label>
-              <input type="password"name="MATKHAU"id="MATKHAU"class="form-control"
-                     placeholder="Phải Từ 6-20 ký tự và ít nhất 1 con số, 1 chữ in hoa và 1 chữ in thường."required/>
-            </div>
-            <div class="form-group">
-              <label for="TEN_KH">Họ và tên của bạn:</label>
-              <input type="text"id="TEN_KH"name="TEN_KH" class="form-control"required/>
-            </div>
-            <div class="form-group">
-              <label for="GIOITINHM">Giới tính:</label>
-              <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input"id="GIOITINHM"name="GIOITINH"/>
-                <label for="GIOITINHM">Nam</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input"id="GIOITINHF"name="GIOITINH"/>
-                <label for="GIOITINHF">Nữ</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="DIA_CHI">Địa chỉ nơi bạn nhận hàng:</label>
-              <input type="text"id="DIA_CHI"name="DIA_CHI" class="form-control"required/>
-            </div>
-            <div class="form-group">
-              <label for="EMAIL">Email của bạn:</label>
-              <input type="email"id="EMAIL"name="EMAIL" class="form-control"required/>
-            </div>
-            <div class="form-group">
-              <label for="SDT">Số điện thoại bạn dùng:</label>
-              <input type="text"id="SDT"name="SDT" class="form-control"required/>
-            </div>
-            <div class="form-group">
-              <label for="NGAY_SINH">Ngày sinh của bạn:</label>
-              <input type="date"id="NGAY_SINH"name="NGAY_SINH" class="form-control"/>
-            </div>
-            <br/>
-            <div align="center">
-              <button type="submit"class="form-signin">Đăng Ký</button>
-            </div>
+
 
           </div>
         </div>
-      </div>
-      <div class="col-5">
-        <h3>Thông tin đã được đăng ký</h3>
-        <ul>
-          <li>Tên đăng nhập:</li>
-          <li>Mật khẩu:</li>
-          <li>Họ và tên của bạn:</li>
-          <li>Giới tính:</li>
-          <li>Địa chỉ nơi bạn nhận hàng:</li>
-          <li>Email của bạn:</li>
-          <li>Số điện thoại bạn dùng:</li>
-          <li>Ngày sinh của bạn:</li>
-        </ul>
       </div>
     </section>
   </div>
