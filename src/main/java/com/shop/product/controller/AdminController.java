@@ -73,7 +73,6 @@ public class AdminController {
         KhachHang user = new KhachHang();
         user.setId(userDTO.getId());
         user.setEMAIL(userDTO.getEMAIL());
-        user.setTAIKHOAN(userDTO.getTAIKHOAN());
         user.setMAUKHAU(userDTO.getMAUKHAU());
 //        user.setMAUKHAU(bCryptPasswordEncoder.encode(userDTO.getMAUKHAU()));
         user.setTEN_KH(userDTO.getTEN_KH());
@@ -98,7 +97,6 @@ public class AdminController {
             userDTO.setId(user.getId());
             userDTO.setEMAIL(user.getEMAIL());
             userDTO.setMAUKHAU("");
-            userDTO.setTAIKHOAN(user.getTAIKHOAN());
             userDTO.setMAUKHAU(user.getMAUKHAU());
 //            userDTO.setMAUKHAU(bCryptPasswordEncoder.encode(user.getMAUKHAU()));
             userDTO.setTEN_KH(user.getTEN_KH());

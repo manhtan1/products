@@ -129,7 +129,7 @@
                 </li>
                 <!--                        <li class="header__navbar-item header__navbar-item-user">-->
                 <!--                            <img src="https://i.pinimg.com/236x/eb/53/e0/eb53e075730f1e3b3ebc3c05f0426bb8.jpg" alt="" class="header__navbar-item-img">-->
-                <!--                            <span class="header__navbar-item-name">Nguyễn Công Mạnh Tân</span>-->
+                <!--                            <span class="header__navbar-item-name" ></span>-->
                 <!--                            <ul class="header__navbar-menu">-->
                 <!--                                <li class="header__navbar-menu-item">-->
                 <!--                                    <a href="#">Tài khoản của tôi</a>-->
@@ -198,20 +198,25 @@
     </header>
     <section class="row " style="display:flex; justify-content:center;">
                 <div class="col-4"  >
-                    <form action="KhachHang"method="post">
+                    <form action="/user/login" id="form-login"method="post" enctype="application/json">
+                        <th:block th:if="${ErrorMessage}">
+                            <h5 class="text-danger" style="text-align: center"  th:text="${ErrorMessage}" ></h5>
+                        </th:block>
                         <div class="form-group">
-                            <label for="TAIKHOAN">Tên đăng nhập</label>
-                            <input type="text"id="TAIKHOAN"name="TAIKHOAN" class="form-control" required/>
+                            <label for="EMAIL">Tên đăng nhập</label>
+                            <input type="email"id="EMAIL"name="EMAIL" class="form-control" required/>
                         </div>
                         <div class="form-group">
-                            <label for="MATKHAU">Mật khẩu</label>
-                            <input type="password"name="MATKHAU"id="MATKHAU"class="form-control" required/>
+                            <label for="MAUKHAU">Mật khẩu</label>
+                            <input type="password"name="MAUKHAU"id="MAUKHAU"class="form-control" required/>
+                        </div>
+                        <div align="center">
+                            <button type="submit"class="form-signin">Đăng Nhập</button>
+                            <br>
+                            <span>Bạn chưa có tài khoản? Đăng ký <a th:href="@{/user/register}">Tại đây</a></span>
                         </div>
                     </form>
-                    <br/>
-                    <div align="center">
-                        <button type="submit"class="form-signin">Đăng Nhập</button>
-                    </div>
+
         </div>
     </section>
 </div>

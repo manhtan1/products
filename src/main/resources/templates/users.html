@@ -141,7 +141,6 @@
                     <thead class="thead-light text-center">
                     <tr>
                         <th class="text-center" scope="col">STT</th>
-                        <th class="text-center" scope="col">Tài khoản</th>
                         <th class="text-center" scope="col">Họ và tên</th>
                         <th class="text-center" scope="col">Email</th>
                         <th class="text-center" scope="col">Delete</th>
@@ -152,7 +151,6 @@
 
                     <tr th:each="user, iStat : ${users}">
                         <th class="text-center" scope="row" th:text="${iStat.index + 1}">1</th>
-                        <td class="text-center" th:text="${user.TAIKHOAN}"></td>
                         <td class="text-center" th:text="${user.TEN_KH}"></td>
                         <td class="text-center" th:text="${user.EMAIL}"></td>
                         <td class="text-center"><a href="" th:href="@{/admin/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>

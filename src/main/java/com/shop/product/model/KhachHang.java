@@ -17,7 +17,6 @@ public class KhachHang {
     private Integer SDT;
     private String EMAIL;
     private String GIOITINH;
-    private String TAIKHOAN;
     private String MAUKHAU;
 
     public KhachHang(KhachHang user) {
@@ -28,7 +27,6 @@ public class KhachHang {
         this.SDT = user.getSDT();
         this.EMAIL = user.EMAIL;
         this.GIOITINH = user.getGIOITINH();
-        this.TAIKHOAN = user.getTAIKHOAN();
         this.MAUKHAU = user.getMAUKHAU();
     }
     public KhachHang(){
@@ -90,14 +88,6 @@ public class KhachHang {
 
     public void setGIOITINH(String GIOITINH) {
         this.GIOITINH = GIOITINH;
-    }
-
-    public String getTAIKHOAN() {
-        return TAIKHOAN;
-    }
-
-    public void setTAIKHOAN(String TAIKHOAN) {
-        this.TAIKHOAN = TAIKHOAN;
     }
 
     public String getMAUKHAU() {

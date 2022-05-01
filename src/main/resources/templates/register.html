@@ -31,24 +31,23 @@
                 <input type="text" class="form-control" required th:field="*{EMAIL}" name="email" id="email"
                        placeholder="Enter Email">
               </div>
+<!--              <th:block th:if="${ErrorMessage}">-->
+<!--                <h5 class="text-danger" style="text-align: center"  th:text="${ErrorMessage}" ></h5>-->
+<!--              </th:block>-->
               <div class="form-group">
-                <label for="taikhoan">Tài khoản</label>
-                <input type="text" class="form-control" required th:field="*{TAIKHOAN}" name="taikhoan" id="taikhoan"
-                       placeholder="Nhập Tài khoản">
-              </div>
-              <div class="form-group">
+
                 <label for="password">Mật khẩu</label>
-                <input type="password" class="form-control" required th:field="*{MAUKHAU}" name="password" id="password"
+                <input type="password" class="form-control" required="BẠN chưa nhập mật khẩu"  th:field="*{MAUKHAU}" name="password" id="password"
                        placeholder="Nhập mật khẩu">
               </div>
               <div class="form-group">
                 <label for="Name">Tên Khánh Hàng</label>
-                <input type="text" class="form-control" required th:field="*{TEN_KH}" name="Name" id="Name"
+                <input type="text" class="form-control" required  th:field="*{TEN_KH}" name="Name" id="Name"
                        placeholder="Nhập tên khách hàng">
               </div>
               <div class="form-group">
                 <label for="sdt">Số điện thoại</label>
-                <input type="number" class="form-control" required th:field="*{SDT}" name="sdt" id="sdt"
+                <input type="number" class="form-control"  required th:field="*{SDT}" name="sdt" id="sdt"
                        placeholder="Nhập Số điện thoại">
               </div>
               <div class="form-group">

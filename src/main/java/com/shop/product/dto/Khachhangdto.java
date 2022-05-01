@@ -3,6 +3,7 @@ package com.shop.product.dto;
 import lombok.Data;
 
 import java.util.Date;
+
 @Data
 public class Khachhangdto {
     private Long id;
@@ -13,7 +14,6 @@ public class Khachhangdto {
     private String EMAIL;
 
     private String GIOITINH;
-    private String TAIKHOAN;
     private String MAUKHAU;
 
     public Khachhangdto(Long id, String TEN_KH, String DIA_CHI, Date NGAY_SINH, Integer SDT, String EMAIL, String GIOITINH, String TAIKHOAN, String MAUKHAU) {
@@ -24,7 +24,6 @@ public class Khachhangdto {
         this.SDT = SDT;
         this.EMAIL = EMAIL;
         this.GIOITINH = GIOITINH;
-        this.TAIKHOAN = TAIKHOAN;
         this.MAUKHAU = MAUKHAU;
     }
     public Khachhangdto(){
@@ -87,13 +86,6 @@ public class Khachhangdto {
         this.GIOITINH = GIOITINH;
     }
 
-    public String getTAIKHOAN() {
-        return TAIKHOAN;
-    }
-
-    public void setTAIKHOAN(String TAIKHOAN) {
-        this.TAIKHOAN = TAIKHOAN;
-    }
 
     public String getMAUKHAU() {
         return MAUKHAU;
@@ -102,4 +94,6 @@ public class Khachhangdto {
     public void setMAUKHAU(String MAUKHAU) {
         this.MAUKHAU = MAUKHAU;
     }
+
+
 }

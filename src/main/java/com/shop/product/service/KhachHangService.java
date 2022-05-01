@@ -16,4 +16,6 @@ public interface KhachHangService {
 
     Optional<KhachHang> getUserById(Long id);
 
+    Optional<KhachHang> getUserByEMAIL(String email);
+
 }
