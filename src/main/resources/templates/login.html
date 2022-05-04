@@ -188,7 +188,7 @@
 <div class="logo__shop" style="background-color:#efeae2">
     <img src="/img/main.jpg" alt="">
 </div>
-<div class="container text-center">
+<div class="container">
     <header class="row">
         <div class="row">
             <div class="alert-success">
@@ -196,27 +196,31 @@
             </div>
         </div>
     </header>
-    <section class="row " style="display:flex; justify-content:center;">
-                <div class="col-4"  >
-                    <form action="/user/login" id="form-login"method="post" enctype="application/json">
-                        <th:block th:if="${ErrorMessage}">
-                            <h5 class="text-danger" style="text-align: center"  th:text="${ErrorMessage}" ></h5>
-                        </th:block>
-                        <div class="form-group">
-                            <label for="EMAIL">Tên đăng nhập</label>
-                            <input type="email"id="EMAIL"name="EMAIL" class="form-control" required/>
-                        </div>
-                        <div class="form-group">
-                            <label for="MAUKHAU">Mật khẩu</label>
-                            <input type="password"name="MAUKHAU"id="MAUKHAU"class="form-control" required/>
-                        </div>
-                        <div align="center">
-                            <button type="submit"class="form-signin">Đăng Nhập</button>
-                            <br>
-                            <span>Bạn chưa có tài khoản? Đăng ký <a th:href="@{/user/register}">Tại đây</a></span>
-                        </div>
-                    </form>
-
+    <section class="row " style=" justify-content:center;">
+        <div class="col-7">
+            <div class="row">
+                <div class="col">
+                        <form action="/user/login" id="form-login"method="post" enctype="application/json">
+                            <th:block th:if="${ErrorMessage}">
+                                <h5 class="text-danger" style="text-align: center"  th:text="${ErrorMessage}" ></h5>
+                            </th:block>
+                            <div class="form-group">
+                                <label for="EMAIL">Tên đăng nhập</label>
+                                <input type="email"id="EMAIL"name="EMAIL" class="form-control" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="MATKHAU">Mật khẩu</label>
+                                <input type="password"name="MATKHAU"id="MATKHAU"class="form-control" required/>
+                            </div>
+                            <div align="center">
+                                <button type="submit"class="form-signin">Đăng Nhập</button>
+                            </div>
+                            <div align="center">
+                                <span>Bạn chưa có tài khoản? Đăng ký <a th:href="@{/user/register}">Tại đây</a></span>
+                            </div>
+                        </form>
+                </div>
+            </div>
         </div>
     </section>
 </div>

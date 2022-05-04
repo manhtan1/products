@@ -163,7 +163,7 @@
     <div class="logo__shop" style="background-color:#efeae2">
         <img src="/img/main.jpg" alt="">
     </div>
-    <div class="app__container">
+    <form class="app__container"method="post" action="/user/payment">
         <div class="grid">
             <div class="listcart">
                 <h2>Giỏ Hàng</h2>
@@ -203,9 +203,12 @@
                     <br>
                     <span class="footer-heading" th:text="${'Tổng tiền:'+total}"></span>
                 </div>
+                <div align="center">
+                    <button style="height:45px;width:80px"type="submit"th:href="@{/user/payment}" href="#" >ĐẶT HÀNG</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
     <footer class="footer">
         <div class="grid">
             <div class="grid__row">
