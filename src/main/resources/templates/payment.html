@@ -191,10 +191,11 @@
                         <span class="text-muted">Giỏ hàng</span>
                         <span class="badge badge-secondary badge-pill">2</span>
                     </h4>
-                    <ul class="list-group mb-3">
+                    <ul class="sum">
                         <li class="list-group-item d-flex justify-content-between">
-                            <span>Tổng thành tiền</span>
-                            <strong>50000.0</strong>
+                            <span class="footer-heading" th:text="${'Tổng số lượng:'+ SLItem}"></span>
+                            <br>
+                            <span class="footer-heading" th:text="${'Tổng tiền:'+total}"></span>
                         </li>
                     </ul>
 

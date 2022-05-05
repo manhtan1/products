@@ -49,9 +49,15 @@ public class CartsController {
         cartService.updateGioHang(id, SL);
         return "redirect:/home/Cart/list";
     }
-    @PostMapping("/user/payment")
-    public String payment(){
+    @GetMapping("/user/payment")
+    public String payment(Model model){
+        model.addAttribute("total",cartService.getAmount());
+        model.addAttribute("SLItem",cartService.getCount());
         return "payment";
+    }
+    @PostMapping("/user/payment")
+    public String getpayment(){
+        return "redirect:/user/payment";
     }
     @PostMapping("/user/success")
     public String success(){return "success";}
