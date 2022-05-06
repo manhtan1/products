@@ -177,7 +177,7 @@
 <main role="main">
     <!-- Block content - Đục lỗ trên giao diện bố cục chung, đặt tên là `content` -->
     <div class="container mt-4">
-        <form class="needs-validation" name="payment" method="post" action="/user/success">
+        <form class="needs-validation" name="payment" method="post" action="/user/dathang">
             <input type="hidden" name="TAIKHOAN">
             <div class="py-5 text-center">
                 <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
@@ -208,133 +208,54 @@
                     </div>
 
                 </div>
-                <div class="col-md-8 order-md-1">
+                <div class="col-md-8 order-md-1" style="font-size:15px;">
                     <h4 class="mb-3">Thông tin khách hàng</h4>
-                    <form class="row g-3 needs-validation" novalidate>
-                        <div class="col-md-4">
-                            <label for="validationCustom01" class="form-label">Họ tên của bạn:</label>
-                            <input type="text" class="form-control" id="validationCustom01" required>
-                            <div class="valid-feedback">
-                                Đúng cú pháp!
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="validationCustom02" class="form-label">Giới Tính</label>
-                            <select class="form-select" id="validationCustom02" required>
-                                <option selected disabled value="">Bạn hãy chọn...</option>
-                                <option>Nam</option>
-                                <option>Nữ</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Bạn hãy chọn giới tính của mình.
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="validationCustom03" class="form-label">Ghi số nhà và Tên đường:</label>
-                            <input type="text" class="form-control" id="validationCustom03" required>
-                            <div class="valid-feedback">
-                                Đúng cú pháp!
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="validationCustom04" class="form-label">Quận/Huyện:</label>
-                            <select class="form-select" id="validationCustom04" required>
-                                <option selected disabled value="">Bạn hãy chọn...</option>
-                                <option>Quận 1</option>
-                                <option>Quận 2</option>
-                                <option>Quận 3</option>
-                                <option>Quận 4</option>
-                                <option>Quận 5</option>
-                                <option>Quận 6</option>
-                                <option>Quận 7</option>
-                                <option>Quận 8</option>
-                                <option>Quận 9</option>
-                                <option>Quận 10</option>
-                                <option>Quận 11</option>
-                                <option>Quận 12</option>
-                                <option>Quận Bình Thạnh</option>
-                                <option>Quận Bình Tân</option>
-                                <option>Quận Thủ Đức</option>
-                                <option>Quận Phú Nhuận </option>
-                                <option>Quận Tân Bình</option>
-                                <option>Quận Tân Phú</option>
-                                <option>Quận Bình Tân</option>
-                                <option>Quận Gò Vấp</option>
-                                <option>Huyện Nhà Bè</option>
-                                <option>Huyện Hóc Môn</option>
-                                <option>Huyện Bình Chánh</option>
-                                <option>Huyện Cần Giờ</option>
-                                <option>Huyện Củ Chi</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Bạn đã quên chọn!
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <label for="validationCustom06" class="form-label">Phường/Xã:</label>
-                            <select class="form-select" id="validationCustom06" required>
-                                <option selected disabled value="">Bạn hãy chọn...</option>
-                                <option>Phường 1</option>
-                                <option>Phường 2</option>
-                                <option>Phường 3</option>
-                                <option>Phường 4</option>
-                                <option>Phường 5</option>
-                                <option>Phường 6</option>
-                                <option>Phường 7</option>
-                                <option>Phường 8</option>
-                                <option>Phường 9</option>
-                                <option>Phường 10</option>
-                                <option>Phường 11</option>
-                                <option>Phường 12</option>
-                                <option>Phường 13</option>
-                                <option>Phường 14</option>
-                                <option>Phường 15</option>
-                                <option>Phường 16</option>
-                                <option>Phường 17</option>
-                                <option>Phường 18</option>
-                                <option>Phường 19</option>
-                                <option>Phường 20</option>
-                                <option>Phường 21</option>
-                                <option>Phường 22</option>
-                                <option>Phường 23</option>
-                                <option>Phường 24</option>
-                                <option>Phường 25</option>
-                                <option>Phường 26</option>
-                                <option>Phường 27</option>
-                                <option>Phường 28</option>
-                                <option>Phường Bến Nghé</option>
-                                <option>Phường Cô Giang</option>
-                                <option>Phường Phương Định</option>
-                                <option>Phường Bình Thuận</option>
-                                <option>Phường Tân Hưng</option>
-                                <option>Phường Hiệp Phú</option>
-                                <option>Phường Long Phước</option>
-                                <option>Phường Tây Thạnh</option>
-                                <option>Xã Bình Lợi</option>
-                                <option>Xã Bình Chánh</option>
-                                <option>Xã Phước Lộc</option>
-                            </select>
-                            <div class="invalid-feedback">
-                                Bạn đã quên chọn!
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="validationCustom05" class="form-label">Số điện thoại để liên lạc:</label>
-                            <input type="text" class="form-control" id="validationCustom05" required>
-                            <div class="valid-feedback">
-                                Đúng cú pháp!
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <label for="validationCustomUsername" class="form-label">Gmail của bạn:</label>
-                            <div class="input-group has-validation">
-                                <span class="input-group-text" id="inputGroupPrepend">@</span>
-                                <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>
-                                <div class="invalid-feedback">
-                                    Bạn để sai thông tin!
+                    <form class="row g-3 needs-validation" action="/user/dathang"  novalidate>
+                        <th:block th:each="item, iStat : ${users}">
+                            <div class="col-md-4">
+                                <span th:text="${item.id}"></span>
+
+                                <label class="form-label">Họ tên của bạn:</label>
+<!--                                <input type="text" class="form-control" id="validationCustom01" required>-->
+                                <span th:text="${item.TEN_KH}"></span>
+                                <div class="valid-feedback">
+                                    Đúng cú pháp!
                                 </div>
                             </div>
-                        </div>
+
+                            <div class="col-md-4">
+                                <label  class="form-label">Ghi số nhà và Tên đường:</label>
+<!--                                <input type="text" class="form-control" id="validationCustom03" required>-->
+                                <span th:text="${item.DIA_CHI}"></span>
+                                <div class="valid-feedback">
+                                    Đúng cú pháp!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Số điện thoại để liên lạc:</label>
+                                <span th:text="${'0'+item.SDT}"></span>
+<!--                                <input type="text" class="form-control" id="validationCustom05" required>-->
+                                <div class="valid-feedback">
+                                    Đúng cú pháp!
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label  class="form-label">Gmail của bạn:</label>
+                                <span th:text="${item.EMAIL}"></span>
+                                <div class="input-group has-validation">
+<!--                                    <input type="text" class="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required>-->
+                                    <div class="invalid-feedback">
+                                        Bạn để sai thông tin!
+                                    </div>
+                                </div>
+                            </div>
+
+                        </th:block>
+
+
+
+
+
                     </form>
 
                     <h4 class="mb-3">Hình thức thanh toán</h4>

@@ -1,10 +1,9 @@
 package com.shop.product.controller;
 
-import com.shop.product.model.Carts;
-import com.shop.product.model.KhachHang;
-import com.shop.product.model.SanPham;
+import com.shop.product.model.*;
 import com.shop.product.repository.KhachhangRespository;
 import com.shop.product.service.CartService;
+import com.shop.product.service.Donhangservice;
 import com.shop.product.service.ProductService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 public class CartsController {
@@ -26,6 +27,8 @@ public class CartsController {
     ProductService productService;
     @Autowired
     KhachhangRespository khachhangRespository;
+    @Autowired
+    Donhangservice donhangservice;
     @Autowired
     HttpSession httpSession;
     @GetMapping("/home/Cart/list")
@@ -58,20 +61,40 @@ public class CartsController {
         return "redirect:/home/Cart/list";
     }
     @GetMapping("/user/payment")
-    public String payment(Model model){
+    public String payment(Model model,KhachHang khachHang){
+        model.addAttribute("dathang",new DonDatHang());
+        List<KhachHang> khachHangList = khachhangRespository.findKhachHangByEMAIL(khachHang.getEMAIL());
         model.addAttribute("total",cartService.getAmount());
         model.addAttribute("SLItem",cartService.getCount());
+        khachHangList= (List<KhachHang>) httpSession.getAttribute("users");
+        model.addAttribute("users",khachHangList);
         return "payment";
     }
     @PostMapping("/user/payment")
     public String getpayment(KhachHang khachHang){
-        List<KhachHang> khachHangList = khachhangRespository.findByEMAILAndMAUKHAU(khachHang.getEMAIL(), khachHang.getMAUKHAU());
-        if (khachHangList.size() > 0) {
-            return "redirect:/user/payment";
+        if(httpSession.getAttribute("users")==null){
+            return "redirect:/user/login";
         }
-        return "redirect:/user/login";
+        List<KhachHang> khachHangList=(List<KhachHang>) httpSession.getAttribute("users");
+        return "redirect:/user/payment";
 
     }
-    @PostMapping("/user/success")
+    @GetMapping("/user/success")
     public String success(){return "success";}
+    @PostMapping("/user/dathang")
+    public String thanhtoan(Model model,KhachHang khachHang){
+        LocalDateTime current = LocalDateTime.now();
+        NhanVien nhanVien = null;
+        Long generatedLong = new Random().nextLong();
+        DonDatHang donDatHang=new DonDatHang();
+        List<KhachHang> khachHangList = khachhangRespository.findKhachHangByEMAIL(khachHang.getEMAIL());
+        khachHangList= (List<KhachHang>) httpSession.getAttribute("users");
+        donDatHang.setId(2L);
+        donDatHang.setNGAY_GIAO(current);
+        donDatHang.setTONG_TIEN((float) cartService.getAmount());
+        donDatHang.getNhanVien(nhanVien.setId(38L));
+        donDatHang.setKhachHang((KhachHang) khachHangList);
+        donhangservice.updatedonhang(donDatHang);
+        return "redirect:/user/success";
+    }
 }

@@ -34,16 +34,13 @@ public class NhanVien {
         this.MK = MK;
     }
 
-
-
-
-
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public int setId(Long id) {
         this.id = id;
+        return 0;
     }
 
     public String getTEN_NV() {

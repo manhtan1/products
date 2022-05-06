@@ -79,7 +79,8 @@ public class LoginController {
     }
     @PostMapping("/user/login")
     public ModelAndView login(KhachHang khachHang) {
-        List<KhachHang> khachHangList = khachhangRespository.findByEMAILAndMAUKHAU(khachHang.getEMAIL(), khachHang.getMAUKHAU());
+        List<KhachHang> khachHangList = khachhangRespository.findByEMAILAndMAUKHAU(khachHang.getEMAIL(), khachHang.getMAUKHAU()) ;
+        httpSession.setAttribute("users",khachHangList);
         ModelAndView loginView = new ModelAndView("login");
         ModelAndView homeIndex =  new ModelAndView("redirect:/");
         if (khachHangList.size() > 0) {
