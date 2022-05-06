@@ -32,8 +32,8 @@ public class KhachHangServiceimpl implements KhachHangService {
         return khachhangRespository.findById(id);
     }
     @Override
-    public Optional<KhachHang> getUserByEMAIL(String email) {
-        return khachhangRespository.findKhachHangByEMAIL(email);
+    public List<KhachHang> getUserByEMAIL(String EMAIL) {
+        return khachhangRespository.findKhachHangByEMAIL(EMAIL);
     }
 
 

@@ -61,7 +61,7 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a class="active" href="index.html">
+                    <a  th:href="@{/admin}" href="#">
                         <i class="fa fa-dashboard"></i>
                         <span>Dashboard</span>
                     </a>
@@ -72,7 +72,7 @@
                     </a>
                 </li>
                 <li>
-                    <a  href="login.html">
+                    <a class="active" th:href="@{/admin/staffs}" href="#">
                         <i class="fa fa-user"></i>
                         <span>Quản lý nhân viên</span>
                     </a>
@@ -87,12 +87,6 @@
                     <a  th:href="@{/admin/products}" href="#">
                         <i class="fa fa-user"></i>
                         <span>Quản lý sản phẩm</span>
-                    </a>
-                </li>
-                <li>
-                    <a  href="login.html">
-                        <i class="fa fa-user"></i>
-                        <span>Báo cáo</span>
                     </a>
                 </li>
             </ul>

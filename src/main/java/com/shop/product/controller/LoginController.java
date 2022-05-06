@@ -42,10 +42,10 @@ public class LoginController {
     @PostMapping("/user/register")
     public ModelAndView registerPost(KhachHang khachHang,@ModelAttribute Khachhangdto userDTO) {
         KhachHang user = new KhachHang();
-//        Optional<KhachHang> users1=khachHangService.getUserByEMAIL(khachHang.getEMAIL());
+        List<KhachHang> users1=khachhangRespository.findKhachHangByEMAIL(khachHang.getEMAIL());
 
         ModelAndView login=new ModelAndView("redirect:/user/login");
-        ModelAndView register=new ModelAndView("redirect:/user/register");
+        ModelAndView register=new ModelAndView("register");
 //        if (users1!=null){
 //            register.addObject("ErrorMessage","Email đã bị trùng");
 //            return register;
@@ -56,13 +56,27 @@ public class LoginController {
         user.setTEN_KH(userDTO.getTEN_KH());
         user.setSDT(userDTO.getSDT());
         user.setDIA_CHI(userDTO.getDIA_CHI());
-//        if(userDTO.getEMAIL().equals(users1)){
-//            register.addObject("ErrorMessage","Email đã bị trùng");
-//            return register;
-//        }
-        khachHangService.updateUser(user);
+        /*if(userDTO.getEMAIL().equals(users1)){
+            register.addObject("ErrorMessage","Email đã bị trùng");
+            return register;
+        }*/
+        if (user != null && !isDuplicateEmail(user)) {
+            khachHangService.updateUser(user);
+        } else {
+            register.addObject("users", new Khachhangdto());
+            register.addObject("ErrorMessage","Email đã được đăng kí, dùng email khác");
+            return register;
+        }
+//        khachHangService.updateUser(user);
         return login;
     }//after register success
+    private boolean isDuplicateEmail(KhachHang khachHang) {
+        List<KhachHang> khachHangList = khachhangRespository.findKhachHangByEMAIL(khachHang.getEMAIL());
+        if (khachHangList.size() > 0) {
+            return true;
+        }
+        return false;
+    }
     @PostMapping("/user/login")
     public ModelAndView login(KhachHang khachHang) {
         List<KhachHang> khachHangList = khachhangRespository.findByEMAILAndMAUKHAU(khachHang.getEMAIL(), khachHang.getMAUKHAU());
@@ -74,4 +88,5 @@ public class LoginController {
         loginView.addObject("ErrorMessage","Tên đăng nhập hoặc mật khẩu không đúng");
         return loginView;
     }
+
 }

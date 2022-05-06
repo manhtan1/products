@@ -1,7 +1,9 @@
 package com.shop.product.controller;
 
 import com.shop.product.model.Carts;
+import com.shop.product.model.KhachHang;
 import com.shop.product.model.SanPham;
+import com.shop.product.repository.KhachhangRespository;
 import com.shop.product.service.CartService;
 import com.shop.product.service.ProductService;
 import org.springframework.beans.BeanUtils;
@@ -12,7 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
 import java.util.Collection;
+import java.util.List;
 
 @Controller
 public class CartsController {
@@ -20,6 +24,10 @@ public class CartsController {
     CartService cartService;
     @Autowired
     ProductService productService;
+    @Autowired
+    KhachhangRespository khachhangRespository;
+    @Autowired
+    HttpSession httpSession;
     @GetMapping("/home/Cart/list")
     public String list(Model model){
         Collection<Carts> carts=cartService.getCarts();
@@ -56,8 +64,13 @@ public class CartsController {
         return "payment";
     }
     @PostMapping("/user/payment")
-    public String getpayment(){
-        return "redirect:/user/payment";
+    public String getpayment(KhachHang khachHang){
+        List<KhachHang> khachHangList = khachhangRespository.findByEMAILAndMAUKHAU(khachHang.getEMAIL(), khachHang.getMAUKHAU());
+        if (khachHangList.size() > 0) {
+            return "redirect:/user/payment";
+        }
+        return "redirect:/user/login";
+
     }
     @PostMapping("/user/success")
     public String success(){return "success";}
