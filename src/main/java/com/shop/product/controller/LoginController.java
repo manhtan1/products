@@ -80,10 +80,10 @@ public class LoginController {
     @PostMapping("/user/login")
     public ModelAndView login(KhachHang khachHang) {
         List<KhachHang> khachHangList = khachhangRespository.findByEMAILAndMAUKHAU(khachHang.getEMAIL(), khachHang.getMAUKHAU()) ;
-        httpSession.setAttribute("users",khachHangList);
         ModelAndView loginView = new ModelAndView("login");
         ModelAndView homeIndex =  new ModelAndView("redirect:/");
         if (khachHangList.size() > 0) {
+            httpSession.setAttribute("KhachHangDangNhap", khachHangList.get(0));
             return homeIndex;
         }
         loginView.addObject("ErrorMessage","Tên đăng nhập hoặc mật khẩu không đúng");

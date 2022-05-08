@@ -5,11 +5,13 @@ import com.shop.product.repository.ProductRepository;
 import com.shop.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Component
+@SessionScope
 public class ProductServiceimpl implements ProductService{
     @Autowired
     ProductRepository productRepository;

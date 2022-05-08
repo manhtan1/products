@@ -1,11 +1,11 @@
 package com.shop.product.model;
 
-import javax.persistence.*;
-import java.math.BigDecimal;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
-
-@Entity
+//@Entity
 public class Carts {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +19,15 @@ public class Carts {
     private String HINHANH;
     private Long SL;
     private Float Total;
+    private SanPham sanPham;
+
+    public SanPham getSanPham() {
+        return sanPham;
+    }
+
+    public void setSanPham(SanPham sanPham) {
+        this.sanPham = sanPham;
+    }
 
     public Long getId() {
         return id;
