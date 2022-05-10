@@ -30,6 +30,7 @@ public class KhachHang {
         this.MAUKHAU = user.getMAUKHAU();
     }
     public KhachHang(){
+        super();
     }
 
 

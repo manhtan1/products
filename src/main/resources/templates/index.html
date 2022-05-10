@@ -49,7 +49,7 @@
                 </ul>
 
                 <ul class="header__navbar-list">
-                    <li class="header__navbar-item header__navbar-item-has-notify"><a href="" class="header__navbar-link">
+                    <li class="header__navbar-item header__navbar-item-has-notify header__navbar--separate"><a href="" class="header__navbar-link">
                         <i class="header__navbar-icon fal fa-bell"></i>
                         Thông báo</a>
                         <div class="header__notify">
@@ -94,8 +94,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="header__navbar-item"><a href="" class="header__navbar-link">
-                        <a href="/user/help"class="header__navbar-icon far far-question">Trợ giúp</a></a>
+                    <li class="header__navbar-item header__navbar-item--bold header__navbar--separate">
+                        <a href="/user/help"class="sign-login">Trợ giúp</a>
                     </li>
                     <li class="js-sign header__navbar-item header__navbar-item--bold header__navbar--separate">
                         <a class="sign-login" th:href="@{/user/register}" href="#">Đăng ký</a>
@@ -151,7 +151,7 @@
                     </button>
                 </div>
                 <div class="header__cart">
-                    <div class="header__cart-wrap" th:onclick=" |openCart()|">
+                    <div class="header__cart-wrap" >
                         <i class="header__cart-icon fas fa-shopping-cart"></i>
                         <!--                        <span class="header__cart-notice">3</span>-->
                         <!--                         no cart:header__cart-list&#45;&#45;no-cart -->
