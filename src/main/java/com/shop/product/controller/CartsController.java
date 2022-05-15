@@ -98,19 +98,17 @@ public class CartsController {
         KhachHang ListKH=(KhachHang) httpSession.getAttribute("KhachHangDangNhap");
         DonDatHang donhang=storeDonHang(ListKH,NGAY_GIAO);
         Collection<Carts> carts=cartService.getCarts();
-        for (Carts gioHangItem: carts ) {
-            int sl=cartService.getCount();
-            Ct_DH ct_dh=new Ct_DH();
-            ct_dh.setDonDatHang(donhang);
-            ct_dh.setSO_LUONG(Math.toIntExact(gioHangItem.getSL()));
-//            ct_dh.setSO_LUONG(1);
-            ct_dh.setSanpham(gioHangItem.getSanPham());
-//            chitietdonhangRespository.save(ct_dh);
-        }
+//        for (Carts gioHangItem: carts ) {
+//            int sl=cartService.getCount();
+//            Ct_DH ct_dh=new Ct_DH();
+//            ct_dh.setDonDatHang(donhang);
+//            ct_dh.setSO_LUONG(Math.toIntExact(gioHangItem.getSL()));
+////            ct_dh.setSO_LUONG(1);
+//            ct_dh.setSanpham(gioHangItem.getSanPham());
+////            chitietdonhangRespository.save(ct_dh);
+//        }
             cartService.clear();
-            return "redirect:/user/success";
+            return "redirect:/user/payment";
 
     }
-    @GetMapping("/user/success")
-    public String success(){return "success";}
 }

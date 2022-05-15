@@ -63,7 +63,7 @@
       <!-- sidebar menu start-->
       <ul class="sidebar-menu" id="nav-accordion">
         <li>
-          <a class="active" href="index.html">
+          <a class="active" th:href="@{/admin}" href="#">
             <i class="fa fa-dashboard"></i>
             <span>Dashboard</span>
           </a>
@@ -74,14 +74,14 @@
           </a>
         </li>
         <li>
-          <a  href="login.html">
+          <a  th:href="@{/admin/staffs}" href="#">
             <i class="fa fa-user"></i>
             <span>Quản lý nhân viên</span>
           </a>
         </li>
         <li>
-          <a  href="login.html">
-            <i class="fa fa-user"></i>
+          <a th:href="@{/admin/Donhang}" href="#">
+          <i class="fa fa-user"></i>
             <span>Quản lý đơn hàng</span>
           </a>
         </li>

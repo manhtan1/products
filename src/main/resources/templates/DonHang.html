@@ -68,7 +68,7 @@
                         <span>Dashboard</span>
                     </a>
                 <li>
-                    <a th:href="@{/admin/users}" href="#">
+                    <a  th:href="@{/admin/users}" href="#">
                         <i class="fa fa-user"></i>
                         <span>Quản lý Khách hàng</span>
                     </a>
@@ -80,19 +80,18 @@
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{/admin/Donhang}" href="#">
+                    <a class="active" th:href="@{/admin/Donhang}" href="#">
                         <i class="fa fa-user"></i>
                         <span>Quản lý đơn hàng</span>
                     </a>
                 </li>
                 <li>
-                    <a class="active" th:href="@{/admin/products}" href="#">
+                    <a  th:href="@{/admin/products}" href="#">
                         <i class="fa fa-user"></i>
                         <span>Quản lý sản phẩm</span>
                     </a>
                 </li>
             </ul>
-            <!-- sidebar menu end-->
         </div>
     </aside>
     <!--sidebar end-->
@@ -130,61 +129,36 @@
                 </div>
 
             </div>
-            <!--state overview end-->
             <div class="container">
-                <h3>Product Infor</h3>
-                <form th:action="@{/admin/products/add}" method="post" th:object="${productDTO}" enctype="multipart/form-data">
-                    <div class="row">
-                        <div class="col-sm-5">
+                <table class="table">
+                    <thead class="thead-light text-center">
+                    <tr>
+                        <th class="text-center" scope="col">STT</th>
+                        <th class="text-center" scope="col">Họ và tên</th>
+                        <th class="text-center" scope="col">Email</th>
+                        <th class="text-center" scope="col">Delete</th>
+                        <th class="text-center" scope="col">Update</th>
+                    </tr>
+                    </thead>
+                    <tbody>
 
-                            <input type="hidden" name="id" th:field="*{id}">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" required th:field="*{TEN_SAN_PHAM}" name="name" id="name"
-                                       placeholder="Enter name">
-
-                            </div>
-                            <div class="form-group">
-                                <label for="price">Price</label>
-                                <input type="number" class="form-control" required th:field="*{DON_GIA}" name="price" id="price"
-                                       placeholder="Price">
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Mô tả</label>
-                                <textarea class="form-control" rows="5" th:field="*{MO_TA}" name="description" id="description"></textarea>
-
-                            </div>
-                            <div class="form-group">
-                                <label for="slton">Số lượng tồn</label>
-                                <input type="number" class="form-control" required th:field="*{SL_ton}" name="slton" id="slton"
-                                       placeholder="Số lượng tồn">
-                            </div>
-                        </div>
-                        <div class="col-sm-5">
-                            <p>Product Image</p>
-                            <div class="custom-file">
-                                <input type="file"  class="custom-file-input" name="productImage" accept="/img"  id="productImage"/>
-                                <label class="custom-file-label" for="productImage">Choose file</label>
-                            </div>
-                            <div class="form-group">
-                                <img src="#" id="imgPreview" height="100px" width="100px" th:src="@{/img/food.jpg}" style="margin-top: 20px" alt=" ">
-                            </div>
-                            <input type="hidden" name="imgName" th:value="${productDTO.HINHANH}">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-
-                    </div>
-                </form>
+                    <tr th:each="user, iStat : ${DonHang}">
+                        <th class="text-center" scope="row" th:text="${iStat.index + 1}">1</th>
+                        <td class="text-center" th:text="${user.NGAY_LAP_DON}"></td>
+                        <td class="text-center" th:text="${user.NGAY_GIAO}"></td>
+                        <td class="text-center" th:text="${user.TONG_TIEN}"></td>
+                        <td class="text-center"><a href="" th:href="@{/admin/DonHang/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
     </section>
     <!--footer start-->
     <footer class="site-footer">
-        <footer class="site-footer">
-            <div class="text-center">
-                Family4-Quán bánh ngọt
-            </div>
-        </footer>
+        <div class="text-center">
+            Family4-Quán bánh ngọt
+        </div>
     </footer>
     <!--footer end-->
 </section>
@@ -240,5 +214,4 @@
   }
 </style>
 
-<!-- Mirrored from thevectorlab.net/flatlab/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 14 Aug 2015 03:43:32 GMT -->
 </html>

@@ -7,6 +7,7 @@ import com.shop.product.model.Admin;
 import com.shop.product.model.KhachHang;
 import com.shop.product.model.NhanVien;
 import com.shop.product.model.SanPham;
+import com.shop.product.repository.DonHangRepository;
 import com.shop.product.service.KhachHangService;
 import com.shop.product.service.ProductService;
 import com.shop.product.service.StaffService;
@@ -27,6 +28,8 @@ import java.util.Optional;
 public class AdminController {
     public static String uploadDir = System.getProperty("user.dir") + "/src/main/resources/static/img";
 
+    @Autowired
+    DonHangRepository donHangRepository;
     @Autowired
     ProductService productService;
     @Autowired
@@ -105,7 +108,7 @@ public class AdminController {
             model.addAttribute("userDTO", userDTO);
             return "usersAdd";
         }else {
-            return "404";
+            return "redirect:/admin/users";
         }
 
     }
@@ -220,5 +223,16 @@ public class AdminController {
 
     }//form edit product, fill old data into form
 
+    //Đơn Hàng
+    @GetMapping("/admin/Donhang")
+    public String getDon(Model model){
+        model.addAttribute("DonHang",donHangRepository.findAll());
+        return "DonHang";
+    }
+    @GetMapping("/admin/DonHang/delete/{id}")
+    public String deleteDH(@PathVariable long id){
+        donHangRepository.deleteById(id);
+        return "redirect:/admin/Donhang";
+    }//delete 1 product
 
 }
