@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class DonHangDto {
     private Long id;
-
     private Date NGAY_LAP_DON;
     private Date NGAY_GIAO;
     private double TONG_TIEN;

@@ -108,7 +108,7 @@ public class CartsController {
 ////            chitietdonhangRespository.save(ct_dh);
 //        }
             cartService.clear();
-            return "redirect:/user/payment";
+            return "redirect:/";
 
     }
 }

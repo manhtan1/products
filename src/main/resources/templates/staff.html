@@ -138,8 +138,8 @@
                         <th class="text-center" scope="col">Họ và tên</th>
                         <th class="text-center" scope="col">Email</th>
                         <th class="text-center" scope="col">Chức vụ</th>
-                        <th class="text-center" scope="col">Delete</th>
-                        <th class="text-center" scope="col">Update</th>
+                        <th class="text-center" scope="col">Xoá</th>
+                        <th class="text-center" scope="col">Cập nhật</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -148,8 +148,8 @@
                         <td class="text-center" th:text="${user.TEN_NV}"></td>
                         <td class="text-center" th:text="${user.EMAIL_NV}"></td>
                         <td class="text-center" th:text="${user.CHUCVU}"></td>
-                        <td class="text-center"><a href="" th:href="@{/admin/staffs/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
-                        <td class="text-center"><a href="" th:href="@{/admin/staffs/update/{id}(id=${user.id})}" class="btn btn-warning">Update</a></td>
+                        <td class="text-center"><a href="" th:href="@{/admin/staffs/delete/{id}(id=${user.id})}" class="btn btn-danger">Xoá</a></td>
+                        <td class="text-center"><a href="" th:href="@{/admin/staffs/update/{id}(id=${user.id})}" class="btn btn-warning">Cập nhật</a></td>
 
                     </tr>
 

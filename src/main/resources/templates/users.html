@@ -130,15 +130,15 @@
 
             </div>
             <div class="container">
-                <a th:href="@{/admin/users/add}" style="margin: 20px 0" class="btn btn-primary">Add Account</a>
+                <a th:href="@{/admin/users/add}" style="margin: 20px 0" class="btn btn-primary">Thêm tài khoản mới</a>
                 <table class="table">
                     <thead class="thead-light text-center">
                     <tr>
                         <th class="text-center" scope="col">STT</th>
                         <th class="text-center" scope="col">Họ và tên</th>
                         <th class="text-center" scope="col">Email</th>
-                        <th class="text-center" scope="col">Delete</th>
-                        <th class="text-center" scope="col">Update</th>
+                        <th class="text-center" scope="col">Xoá</th>
+                        <th class="text-center" scope="col">Cập nhật</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -147,8 +147,8 @@
                         <th class="text-center" scope="row" th:text="${iStat.index + 1}">1</th>
                         <td class="text-center" th:text="${user.TEN_KH}"></td>
                         <td class="text-center" th:text="${user.EMAIL}"></td>
-                        <td class="text-center"><a href="" th:href="@{/admin/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete</a></td>
-                        <td class="text-center"><a href="" th:href="@{/admin/users/update/{id}(id=${user.id})}" class="btn btn-warning">Update</a></td>
+                        <td class="text-center"><a href="" th:href="@{/admin/users/delete/{id}(id=${user.id})}" class="btn btn-danger">Xoá</a></td>
+                        <td class="text-center"><a href="" th:href="@{/admin/users/update/{id}(id=${user.id})}" class="btn btn-warning">Cập nhật</a></td>
 
                     </tr>
                     </tbody>
