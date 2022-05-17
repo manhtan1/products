@@ -153,11 +153,11 @@
                     </button>
                 </div>
                 <div class="header__cart">
-                    <div class="header__cart-wrap" >
+                    <a th:href="@{/home/Cart/list}" class="header__cart-wrap" >
                         <i class="header__cart-icon fas fa-shopping-cart"></i>
-                        <!--                        <span class="header__cart-notice">3</span>-->
+                                                <span class="header__cart-notice" th:text="${SLItem}"></span>
                         <!--                         no cart:header__cart-list&#45;&#45;no-cart -->
-                    </div>
+                    </a>
 
                 </div>
             </div>
