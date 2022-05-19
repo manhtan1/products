@@ -1,7 +1,6 @@
 package com.shop.product.controller;
 
 
-import antlr.StringUtils;
 import com.shop.product.model.Carts;
 import com.shop.product.model.SanPham;
 import com.shop.product.repository.SanphamRepository;
@@ -9,7 +8,10 @@ import com.shop.product.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -39,7 +41,16 @@ public class HomeController {
     public String help(){
         return "help";
     }//page help
-    /*@GetMapping("/search")
-    public String search(Model model, @RequestParam(name = "TEN_SAN_PHAM",required = false) String TEN_SAN_PHAM){
-    }*/
+    @GetMapping("/search")
+    public String search(ModelMap model, @RequestParam(name = "name",required = false) String name){
+        List<SanPham> list=null;
+        if(StringUtils.hasText(name)){
+            list=sanphamRepository.findByName(name);
+        }
+        else {
+            list=sanphamRepository.findAll();
+        }
+        model.addAttribute("sanPhamList",list);
+        return "Search";
+    }
 }

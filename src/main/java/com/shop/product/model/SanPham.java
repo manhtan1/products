@@ -10,6 +10,16 @@ public class SanPham {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String TEN_SAN_PHAM;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = TEN_SAN_PHAM;
+    }
+
     private Float DON_GIA;
     private Integer DON_VI_TINH;
     private String MO_TA;
