@@ -509,7 +509,7 @@
 }
 
 .header__cart-icon{
-    color:var(--white-color);
+    color:var(--primary-color);
     font-size:2.4rem;
 }
 
@@ -1310,11 +1310,13 @@
     color:rgba(130, 130, 130, 1)
 }
 .logo__shop{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--white-color);
-    background-image: url("../img/Phong.png");
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: var(--white-color);
+        background: center;
+        background-repeat: no-repeat;
+        background-image: url(../img/Phong.png);
 }
 .logo__shop img{
     height: 300px;

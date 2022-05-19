@@ -2,19 +2,19 @@ package com.shop.product.controller;
 
 
 import com.shop.product.model.Carts;
+import com.shop.product.model.KhachHang;
 import com.shop.product.model.SanPham;
 import com.shop.product.repository.SanphamRepository;
 import com.shop.product.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.Collection;
 import java.util.List;
 
@@ -25,16 +25,19 @@ public class HomeController {
     CartService cartService;
     @Autowired
     SanphamRepository sanphamRepository;
+    @Autowired
+    HttpSession httpSession;
 
     @GetMapping("/")
     public ModelAndView index() {
+        KhachHang ListKH=(KhachHang) httpSession.getAttribute("KhachHangDangNhap");
         Collection<Carts> carts=cartService.getCarts();
         ModelAndView modelAndView = new ModelAndView("index");
         List<SanPham> sanPhamList = sanphamRepository.findAll();
         modelAndView.addObject("carts",carts);
         modelAndView.addObject("sanPhamList", sanPhamList);
         modelAndView.addObject("SLItem",cartService.getCount());
-
+        modelAndView.addObject("users",ListKH);
         return modelAndView;
     }
     @GetMapping("/user/help")
@@ -52,5 +55,11 @@ public class HomeController {
         }
         model.addAttribute("sanPhamList",list);
         return "Search";
+    }
+    @GetMapping("/dangxuat")
+    public String dangxuat(){
+        KhachHang ListKH=(KhachHang) httpSession.getAttribute("KhachHangDangNhap");
+        httpSession.invalidate();
+        return "redirect:/";
     }
 }

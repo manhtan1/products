@@ -69,25 +69,8 @@
       <label for="diachi">Địa chỉ nhận hàng</label>
     </div>
 
-    <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Đăng ký</button>
+    <button type="submit" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">Đăng ký</button>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel"style="color:red">Thông báo</h5>
-          </div>
-          <div class="modal-body">
-            <h5>
-              Bạn đã đăng ký tài khoản thành công, bây giờ bạn cần quay lại đăng nhập để hoàn tất bước cuối cùng này.
-            </h5>
-          </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary">Đăng Nhập</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div>
       <a th:href="@{/user/login}">Bạn đã có tài khoản, đăng nhập?</a>

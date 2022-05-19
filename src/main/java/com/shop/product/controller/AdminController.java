@@ -190,7 +190,7 @@ public class AdminController {
         }else {
             imageUUID = imgName;
         }//save image
-        product.setHINHANH(imageUUID);
+        product.setHINHANH("img/"+imageUUID);
 
         productService.updateProduct(product);
         return "redirect:/admin/products";
