@@ -60,6 +60,7 @@
     </div>
 
     <div class="form-floating mb-3">
+
       <input type="text" class="form-control" th:field="*{SDT}" name="sdt" id="sdt" placeholder="Password" required/>
       <label for="sdt">Số điện thoại</label>
     </div>
@@ -87,6 +88,14 @@
     var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
       return new bootstrap.Popover(popoverTriggerEl)
     })
+
+    function check(){
+      var sdt= document.getElementById("sdt").value;
+      if( typeof sdt != 'Number'){
+          alert("Số điện thoại bị lỗi");
+      }
+      location.reload();
+    }
 </script>
 
 </body>

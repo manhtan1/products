@@ -70,6 +70,7 @@ public class LoginController {
 //        khachHangService.updateUser(user);
         return login;
     }//after register success
+
     private boolean isDuplicateEmail(KhachHang khachHang) {
         List<KhachHang> khachHangList = khachhangRespository.findKhachHangByEMAIL(khachHang.getEMAIL());
         if (khachHangList.size() > 0) {

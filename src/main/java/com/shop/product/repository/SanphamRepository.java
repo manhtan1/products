@@ -8,5 +8,5 @@ import java.util.List;
 @Repository
 public interface SanphamRepository extends CrudRepository<SanPham, Long> {
     List<SanPham> findAll();
-    List<SanPham> findByName(String name);
+    List<SanPham> findByname(String name);
 }

@@ -100,31 +100,31 @@
                     <li class="header__navbar-item header__navbar-item--bold header__navbar--separate">
                         <a href="/user/help"class="sign-login">Trợ giúp</a>
                     </li>
-                    <!--<li class="js-sign header__navbar-item header__navbar-item--bold header__navbar--separate">
+                    <th:block>
+
+                    </th:block>
+                    <li th:if="${users==null}" class="js-sign header__navbar-item header__navbar-item--bold header__navbar--separate">
                         <a class="sign-login" th:href="@{/user/register}" href="#">Đăng ký</a>
-                    </li>-->
-                    <li class="js-login header__navbar-item header__navbar-item--bold">
+                    </li>
+                    <li th:if="${users==null}" class="js-login header__navbar-item header__navbar-item--bold">
                         <a class="sign-login" th:href="@{/user/login}" href="#">Đăng nhập</a>
                     </li>
 
 
-                    <!--                        <li class="header__navbar-item header__navbar-item-user">-->
-                    <!--                            <img src="https://i.pinimg.com/236x/eb/53/e0/eb53e075730f1e3b3ebc3c05f0426bb8.jpg" alt="" class="header__navbar-item-img">-->
-                    <!--                            <span class="header__navbar-item-name">Nguyễn Công Mạnh Tân</span>-->
-                    <!--                            <ul class="header__navbar-menu">-->
-                    <!--                                <li class="header__navbar-menu-item">-->
-                    <!--                                    <a href="#">Tài khoản của tôi</a>-->
-                    <!--                                </li>-->
-                    <!--                                <li class="header__navbar-menu-item">-->
-                    <!--                                    <a href="#">Địa chỉ của tôi</a>-->
-                    <!--                                </li>-->
-                    <!--                                <li class="header__navbar-menu-item">-->
-                    <!--                                    <a href="#">Đơn mua</a>-->
-                    <!--                                </li>-->
-                    <!--                                <li class="header__navbar-menu-item header__navbar-menu-item--separate">-->
-                    <!--                                    <a href="#">Đăng xuất</a>-->
-                    <!--                                </li>-->
-                </ul>
+                                            <li th:unless="${users==null}" class="header__navbar-item header__navbar-item-user">
+                                                <th:block th:each="user, iStat : ${users}">
+                                                    <img src="https://i.pinimg.com/236x/eb/53/e0/eb53e075730f1e3b3ebc3c05f0426bb8.jpg" alt="" class="header__navbar-item-img">
+                                                    <span class="header__navbar-item-name" th:text="${user.TEN_KH}"></span>
+                                                    <ul class="header__navbar-menu">
+                                                        <li class="header__navbar-menu-item">
+                                                            <a href="#">Tài khoản của tôi</a>
+                                                        </li>
+                                                        <li class="header__navbar-menu-item header__navbar-menu-item--separate">
+                                                            <a href="#">Đăng xuất</a>
+                                                        </li>
+                                                    </ul>
+                                                </th:block>
+
                 </li>
                 </ul>
             </nav>
@@ -137,12 +137,12 @@
                     <form action="/search" style="display:flex">
 
 
-                        <button class="header__search-btn">
+                        <button type="submit" class="header__search-btn">
                             <i class="header__search-btn-icon fas fa-search"></i>
                         </button>
 
                         <div class="header__search-input-wrap" style="width:50rem; margin-top: 8px">
-                            <input type="text" name="TEN_SAN_PHAM" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
+                            <input type="text" name="name" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
 
                             <div class="header__search-history">
 
@@ -173,11 +173,6 @@
 
         </div>
     </header>
-
-    <div class="logo__shop" style="background-color:#efeae2">
-        <img src="/img/main.jpg" alt="">
-    </div>
-
 <div class="app__container">
         <div class="grid">
             <div class="grid__row app__content">
@@ -293,6 +288,9 @@
             padding-left: 5px;
             padding-right: 5px;
             width: 100%;
+        }
+        .app__content{
+            justify-content: center;
         }
     </style>
 </html>

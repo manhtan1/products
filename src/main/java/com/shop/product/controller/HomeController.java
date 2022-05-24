@@ -46,14 +46,17 @@ public class HomeController {
     }//page help
     @GetMapping("/search")
     public String search(ModelMap model, @RequestParam(name = "name",required = false) String name){
+        KhachHang ListKH=(KhachHang) httpSession.getAttribute("KhachHangDangNhap");
+
         List<SanPham> list=null;
         if(StringUtils.hasText(name)){
-            list=sanphamRepository.findByName(name);
+            list=sanphamRepository.findByname(name);
         }
         else {
             list=sanphamRepository.findAll();
         }
         model.addAttribute("sanPhamList",list);
+        model.addAttribute("users",ListKH);
         return "Search";
     }
     @GetMapping("/dangxuat")
